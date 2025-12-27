@@ -1,7 +1,7 @@
 ---
-title: Python
-description: Create a clean development environment for high productivity
-date: '2024-1-20'
+title: Python & Node
+description: Create clean development environments for high productivity
+date: '2022-1-20'
 image: /images/npm-keyboard.jpg
 categories:
   - Python
