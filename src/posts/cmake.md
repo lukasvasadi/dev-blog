@@ -13,16 +13,6 @@ published: true
   import Tag from "../components/tag.svelte"  
 </script>
 
-## Contents
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Basics](#basics)
-- [Libraries](#libraries)
-- [Variables](#variables)
-- [Options](#options)
-- [Command line options](#command-line-options)
-
 <Heading str="Introduction" />
 
 CMake is an open-source, cross-platform automation tool for generating C/C++ Makefiles, which can then be used to build the source. It has become the _de facto_ build system for the developer community as well as major companies, such as Qt and ST Microelectronics.
