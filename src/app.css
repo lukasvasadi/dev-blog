@@ -1,0 +1,126 @@
+@import '@fontsource/manrope';
+@import '@fontsource/fira-code';
+@import '@fontsource/jetbrains-mono';
+
+:root {
+	--font-sans: 'Manrope', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+	--background-color: #1a1a1a;
+	--text-color-subheading: #aaa;
+	--text-color: #ccc;
+	--text-color-alt: #1a1a1a;
+	--border-color: #aaa;
+	--radius: 5px;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+
+body {
+	max-height: 100vh;
+	max-width: 100vw;
+	font-size: 16px;
+	font-family: var(--font-sans), sans-serif;
+}
+
+strong {
+	font-weight: 700;
+	font-variation-settings:
+		'wdth' 75,
+		'wght' 700;
+}
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-family-sans-heading), sans-serif;
+}
+
+/* Disable grey box on click in mobile browsers */
+a,
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+.tag code,
+dl code,
+li code {
+	background: #333;
+	padding: 0.2rem 0.5rem;
+	font-size: 14px;
+	border-radius: var(--radius);
+}
+
+.prose {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.prose p {
+	max-inline-size: 100%;
+	line-height: 1.6em;
+}
+
+p {
+	overflow-wrap: break-word;
+}
+
+.prose ul {
+	list-style: disc;
+	padding-left: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.prose ul li {
+	padding-inline-start: 0;
+}
+
+.prose h3,
+h4,
+h5 {
+	margin-top: 1rem;
+}
+
+.prose img {
+	max-width: 100%;
+	max-height: 600px;
+	display: block;
+	margin: 1rem auto;
+	border-radius: var(--radius);
+}
+
+.prose pre {
+	max-width: 100%;
+	/*max-inline-size: 100%;*/
+	padding: 1rem;
+	border-radius: 8px;
+	tab-size: 2;
+	overflow-x: auto;
+	font-size: 14px;
+	line-height: 1.6em;
+	box-sizing: border-box;
+}
+
+.prose pre:hover {
+	cursor: text;
+}
