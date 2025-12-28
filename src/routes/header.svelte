@@ -11,7 +11,8 @@
 
 <style>
 	header {
-		/*position: sticky;*/
+		position: sticky;
+		z-index: 1;
 		top: 0;
 		width: 100%;
 		height: fit-content;

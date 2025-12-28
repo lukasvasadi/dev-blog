@@ -6,7 +6,7 @@ image: /images/jameswebb-deep-space.jpg
 categories:
   - Qt QRhi
   - GPU rendering
-published: true
+published: false
 ---
 
 <script>

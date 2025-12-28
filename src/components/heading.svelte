@@ -27,5 +27,6 @@
 	h2 {
 		font-weight: 300;
 		font-size: 40px;
+		scroll-margin-top: 100px; /* Offset from top of page */
 	}
 </style>
