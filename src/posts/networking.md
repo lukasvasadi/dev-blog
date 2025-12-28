@@ -6,7 +6,7 @@ image: /images/ethical-hacking.jpg
 categories:
   - Networking
   - Kali Linux
-published: true
+published: false
 ---
 
 <script>

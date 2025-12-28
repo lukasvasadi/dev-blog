@@ -1,6 +1,6 @@
 ---
-title: Git
-description: Learn to version local and remote code repositories
+title: How to Git
+description: Learn to version control local and remote code repositories.
 date: '2022-10-25'
 image: /images/git.jpg
 categories:

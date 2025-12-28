@@ -1,6 +1,6 @@
 ---
 title: BeagleBone Black
-description: Explore the BeagleBone as a potential controller for IoT projects
+description: Explore the BeagleBone as an embedded Linux solution for IoT projects.
 date: '2023-11-2'
 image: /images/beaglebone-black.jpg
 categories:

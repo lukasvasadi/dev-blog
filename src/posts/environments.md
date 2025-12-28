@@ -1,6 +1,6 @@
 ---
-title: Python & Node
-description: Create clean development environments for high productivity
+title: Configuring Python and NodeJS
+description: Use clean development environments for high productivity.
 date: '2022-1-20'
 image: /images/npm-keyboard.jpg
 categories:

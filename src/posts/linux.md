@@ -1,6 +1,6 @@
 ---
-title: Linux
-description: Learn the basics of the command line
+title: Navigating Linux
+description: Learn the basics of the command line with bash.
 date: '2021-10-20'
 image: /images/macbook-code.jpg
 categories:
@@ -103,7 +103,7 @@ published: true
 
 <Heading str="Introduction" />
 
-Linux was created by Linus Torvalds in 1991 as a free alternative to Unix. Though similar, Linux is technically a Unix clone, not a direct descendant like macOS. For this reason, many of the same commands can be used interchangably on Mac and Linux systems.
+Linux was created by Linus Torvalds in 1991 as a free alternative to Unix. Though similar, Linux is technically a Unix clone, not a direct descendant like macOS. For this reason, many of the same commands can be used interchangeably on Mac and Linux systems.
 
 All material was based on [Introduction to Linux](https://www.edx.org/course/introduction-to-linux), a course from the Linux Foundation hosted on edX. This course covers each topic with greater detail and also includes tutorials on bash shell scripting.
 

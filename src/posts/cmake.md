@@ -1,6 +1,6 @@
 ---
 title: CMake
-description: Leverage CMake to automate the build process for C/C++ projects
+description: Leverage CMake to automate the build process for C/C++ projects.
 date: '2023-08-15'
 image: /images/macbook-code.jpg
 categories:

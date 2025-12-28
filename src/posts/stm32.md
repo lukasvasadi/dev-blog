@@ -1,6 +1,6 @@
 ---
 title: STM32
-description: Configure a development environment with CLion and learn basic MCU functions
+description: Configure a development environment with CLion to build firmware for Arm MCUs.
 date: '2023-8-31'
 image: /images/stm32/low-res/stm32.jpg
 categories:

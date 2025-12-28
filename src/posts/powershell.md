@@ -1,6 +1,6 @@
 ---
-title: PowerShell
-description: Learn the basics of managing Windows systems
+title: Managing Windows with PowerShell
+description: Learn the basics of the Windows console.
 date: '2022-01-15'
 image: /images/windows-surface-laptop.jpg
 categories:
