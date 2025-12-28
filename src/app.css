@@ -6,6 +6,7 @@
 	--font-sans: 'Manrope', sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
 	--background-color: #1a1a1a;
+	--background-color-code: #282c34;
 	--text-color-subheading: #aaa;
 	--text-color: #ccc;
 	--text-color-alt: #1a1a1a;
@@ -59,10 +60,11 @@ button {
 	-webkit-tap-highlight-color: transparent;
 }
 
-.tag code,
+/* Note that `code` tag also used in pre */
+p code,
 dl code,
 li code {
-	background: #333;
+	background: var(--background-color-code);
 	padding: 0.2rem 0.5rem;
 	font-size: 14px;
 	border-radius: var(--radius);
