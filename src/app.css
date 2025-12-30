@@ -11,6 +11,7 @@
 	--text-color: #ccc;
 	--text-color-alt: #1a1a1a;
 	--border-color: #aaa;
+	--link-color: #ffadff;
 	--radius: 5px;
 }
 
@@ -62,6 +63,10 @@ h6 {
 a,
 button {
 	-webkit-tap-highlight-color: transparent;
+}
+
+a {
+	color: var(--link-color);
 }
 
 /* Note that `code` tag also used in pre */
