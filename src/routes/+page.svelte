@@ -38,7 +38,7 @@
 	}
 
 	.post:not(:last-child) {
-		border-bottom: 1px solid #ced4da;
+		border-bottom: 1px solid rgba(206, 212, 218, 0.2);
 		padding-bottom: 2rem;
 	}
 
