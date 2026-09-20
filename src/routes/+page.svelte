@@ -15,7 +15,7 @@
 	<ul class="posts">
 		{#each data.posts as post (post.title)}
 			<li class="post">
-				<a href={resolve('/[slug]', { slug: post.slug })} class="title">{post.title}</a>
+				<h2 class="title"><a href={resolve('/[slug]', { slug: post.slug })}>{post.title}</a></h2>
 				<p class="date">{formatDate(post.date)}</p>
 				<p class="description">{post.description}</p>
 			</li>
@@ -45,6 +45,7 @@
 	.title {
 		font-size: clamp(2rem, 9vw, 3.5rem);
 		font-family: 'Archivo', sans-serif;
+		font-weight: 400;
 		/*text-transform: capitalize;*/
 	}
 
