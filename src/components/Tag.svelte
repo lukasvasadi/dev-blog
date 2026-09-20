@@ -12,7 +12,7 @@
 		{:else}
 			<AlertCircle fill="#ceb301" size="34px" />
 		{/if}
-	</span>{@html msg}
+	</span>{@html msg}<!-- eslint-disable-line svelte/no-at-html-tags -- msg is hardcoded tag text written in post source, not user input -->
 </p>
 
 <style>

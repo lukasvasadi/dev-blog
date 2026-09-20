@@ -2,7 +2,7 @@
 title: STM32
 description: Configure a development environment with CLion to build firmware for Arm MCUs.
 date: '2023-8-31'
-image: /images/stm32/low-res/stm32.jpg
+image: stm32/stm32.jpeg
 categories:
   - STM32
   - Microcontrollers
@@ -13,9 +13,9 @@ published: true
 ---
 
 <script>
-  import Tag from "../components/tag.svelte"
-  import Heading from "../components/heading.svelte"
-  import Expression from "../components/expression.svelte"
+  import Tag from "../components/Tag.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Expression from "../components/Expression.svelte"
 
   const eq = "x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}"
 
@@ -23,7 +23,7 @@ published: true
   const eq2 = "f_o=\\frac{f_t}{n}"
 </script>
 
-![STM32 Nucleo board](/images/stm32/low-res/stm32.jpg)
+![STM32 Nucleo board](../lib/images/stm32/stm32.jpeg)
 
 <Heading str="Introduction" />
 
@@ -50,7 +50,9 @@ This setup is suitable for Windows, Linux, and macOS. The main requirements are 
 - **STM32CubeMX** Graphical tool for configuring STM32 microcontrollers
 - **GNU ARM toolchain** Cross-platform toolchain for compiling C/C++ source
 - **OpenOCD** Open-source debugger software for microcontrollers
+
 <!-- -   **ST-LINK** Software utility for flashing STM32 chips over USB -->
+
 - **CLion** JetBrains IDE for C/C++ development (optional)
 
 ### STM32CubeMX
@@ -59,13 +61,13 @@ This setup is suitable for Windows, Linux, and macOS. The main requirements are 
 
 To configure a project, first select the chipset or board, e.g., the Nucleo-G431RB, and press "Start Project" in the upper right-hand corner, where you will be directed to a graphical representation of the MCU pinout.
 
-![STM32CubeMX board selector window](/images/stm32/low-res/stm32cubemx_board_selector.png)
+![STM32CubeMX board selector window](../lib/images/stm32/stm32cubemx_board_selector.png)
 
 In MCU pinout, green highlighting indicates that the pin has an assigned function, e.g., USART, GPIO. When a function is assigned, the user can modify its behavior through various options in the left-hand pane. As shown below, by default, pin PA5 is connected to the onboard green LED (LD2).
 
-![STM32CubeMX pin configuration window](/images/stm32/low-res/stm32cubemx_pinout_config.png)
+![STM32CubeMX pin configuration window](../lib/images/stm32/stm32cubemx_pinout_config.png)
 
-![STM32CubeMX project manager window](/images/stm32/low-res/stm32cubemx_project_manager.png)
+![STM32CubeMX project manager window](../lib/images/stm32/stm32cubemx_project_manager.png)
 
 ### GNU Arm embedded toolchain
 
@@ -131,7 +133,7 @@ brew install stlink
 
 ### JetBrains CLion IDE
 
-ST provides an Eclipse-based IDE ([STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)) for its microcontrollers and development boards. This IDE integrates with the STM32CubeMX graphical tool for initializing MCU pin configurations. Although the ST-supported IDE has many platform-specific features, I prefer JetBrains CLion for its stronger C/C++ language support and cleaner UI. In addition, the JetBrains developers created seemless integration with STM32CubeMX. You can download the software with a free 30-day trial from [jetbrains.com/clion](https://www.jetbrains.com/clion/).
+ST provides an Eclipse-based IDE ([STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)) for its microcontrollers and development boards. This IDE integrates with the STM32CubeMX graphical tool for initializing MCU pin configurations. Although the ST-supported IDE has many platform-specific features, I prefer JetBrains CLion for its stronger C/C++ language support and cleaner UI. In addition, the JetBrains developers created seamless integration with STM32CubeMX. You can download the software with a free 30-day trial from [jetbrains.com/clion](https://www.jetbrains.com/clion/).
 
 A complete guide to configuring CLion for STM32 can be found at [STM32CubeMX projects](https://www.jetbrains.com/help/clion/embedded-development.html). Once you have installed the compiler toolchain and dependencies, and configured the IDE, you are ready to begin development!
 
@@ -158,9 +160,9 @@ In the above code sample, the "HAL" function prefix is an acronym for "Hardware 
 
 In this section, we will configure the Nucleo-G431RB for serial communication with interrupts. In the infinite loop, the MCU will continue running the blink routine from the example above, but upon receiving serial input, the processor will stop execution on the main thread and run a dedicated event handler function.
 
-To begin, we have to contigure the pinout for **USART1**, which stands for "Universal Synchronous Asynchronous Receiver Transmitter."
+To begin, we have to configure the pinout for **USART2**, which stands for "Universal Synchronous Asynchronous Receiver Transmitter."
 
-![STM32CubeMX serial interrupt configuration](/images/stm32/low-res/stm32cubemx_serial_interrupt_config.png)
+![STM32CubeMX serial interrupt configuration](../lib/images/stm32/stm32cubemx_serial_interrupt_config.png)
 
 The example below shows the source code for interrupting the main thread based on incoming serial data. This data is then used to determine the toggle state of two GPIO pins.
 
@@ -170,7 +172,7 @@ The example below shows the source code for interrupting the main thread based o
     Toggle GPIO pins based on serial input
 */
 
-const uint8_t rx_data[2]
+const uint8_t rx_data[2];
 
 int main() {
     MX_GPIO_Init();
@@ -227,8 +229,8 @@ int main()
 
     const float step = (2 * M_PI) / (N - 1);
 
-    float T[n];
-    float V[n];
+    float T[N];
+    float V[N];
 
     for (uint8_t i = 0; i < N; i++)
     {

@@ -2,7 +2,7 @@
 title: Accelerated computing with CUDA and Python
 description: Enhance data science with rapid parallel processing.
 date: '2023-8-31'
-image: /images/nvidia-gpu.jpg
+image: nvidia-gpu.jpeg
 categories:
   - NVIDIA
   - CUDA
@@ -11,10 +11,10 @@ published: false
 ---
 
 <script>
-  import Tag from "../components/tag.svelte"
+  import Tag from "../components/Tag.svelte"
 </script>
 
-![NVIDIA graphics cards](/images/nvidia-gpu.jpg)
+![NVIDIA graphics cards](../lib/images/nvidia-gpu.jpeg)
 
 ## <a id="introduction">Introduction</a>
 

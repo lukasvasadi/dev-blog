@@ -11,7 +11,7 @@ published: false
 ![Julia REPL](https://upload.wikimedia.org/wikipedia/commons/d/db/Julia1.1.1.jpg)
 
 <script>
-  import Heading from "../components/heading.svelte"
+  import Heading from "../components/Heading.svelte"
 </script>
 
 <Heading str="Introduction" />
@@ -40,7 +40,7 @@ sudo apt install julia
 
 <Heading str="REPL and package manager" />
 
-Julia provides a read-event-print loop (REPL) as an interactive shell to test simple expressions, run scripts, and manage packages. After downloading Julia, you can start the REPL with the `julia` command in the terminal. Inside this new prompt, you can either evaluate expressions or access the package manager with `]`. To exit the package manager, press backspace or CTRL+C; to exit the REPL environment, execute the `exit()` command.
+Julia provides a read-eval-print loop (REPL) as an interactive shell to test simple expressions, run scripts, and manage packages. After downloading Julia, you can start the REPL with the `julia` command in the terminal. Inside this new prompt, you can either evaluate expressions or access the package manager with `]`. To exit the package manager, press backspace or CTRL+C; to exit the REPL environment, execute the `exit()` command.
 
 ### Package management
 
@@ -95,7 +95,7 @@ Similar to Python and JavaScript, Julia supports "anonymous" (lambda) functions.
 x -> x^2
 ```
 
-However, unlike those other languages, Julia allows developers to bind a name to anonumous functions, so that it can be referenced later:
+However, unlike those other languages, Julia allows developers to bind a name to anonymous functions, so that it can be referenced later:
 
 ```julia
 welcome = (first, last) -> println("Welcome, $first $last")

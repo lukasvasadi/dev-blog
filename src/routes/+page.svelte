@@ -1,21 +1,21 @@
 <script lang="ts">
+	import { resolve } from '$app/paths'
 	import { formatDate } from '$lib/utils'
 	import * as config from '$lib/config'
+	import ogImage from '$lib/images/macbook-lifestyle.jpeg?url'
+	import SEO from '../components/SEO.svelte'
 
 	export let data
 </script>
 
-<svelte:head>
-	<title>{config.title}</title>
-	<meta property="og:image" content={'/images/macbook-lifestyle.jpg'} />
-</svelte:head>
+<SEO title={config.title} image={ogImage} />
 
 <!-- Posts -->
 <section>
 	<ul class="posts">
 		{#each data.posts as post (post.title)}
 			<li class="post">
-				<a href={post.slug} class="title">{post.title}</a>
+				<a href={resolve('/[slug]', { slug: post.slug })} class="title">{post.title}</a>
 				<p class="date">{formatDate(post.date)}</p>
 				<p class="description">{post.description}</p>
 			</li>
@@ -44,7 +44,7 @@
 
 	.title {
 		font-size: clamp(2rem, 9vw, 3.5rem);
-		font-family: 'Lato', sans-serif;
+		font-family: 'Archivo', sans-serif;
 		/*text-transform: capitalize;*/
 	}
 
@@ -60,9 +60,9 @@
 		color: var(--text-color-subheading);
 	}
 
-	@media (min-width: 960px) {
+	@media (min-width: 600px) {
 		.post {
-			max-inline-size: 600px;
+			max-inline-size: 700px;
 		}
 	}
 </style>

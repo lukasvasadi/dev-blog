@@ -2,7 +2,7 @@
 title: Networking
 description: Learn networking basics for ethical hacking
 date: '2024-2-2'
-image: /images/ethical-hacking.jpg
+image: ethical-hacking.jpeg
 categories:
   - Networking
   - Kali Linux
@@ -10,12 +10,12 @@ published: false
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Tag from "../components/tag.svelte"
-  import Iconlist from "../components/iconlist.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Tag from "../components/Tag.svelte"
+  import Iconlist from "../components/Iconlist.svelte"
 </script>
 
-![Kali Linux logo](/images/kali-logo.png)
+![Kali Linux logo](../lib/images/kali-logo.png)
 
 <Heading str="Introduction" />
 
@@ -42,6 +42,7 @@ The following web resources contain substantial information on network analysis,
 <Heading str="Networks" />
 
 The vast majority of hacking activity occurs over a network connection. As such, knowing how to interact with networks while maintaining secrecy, e.g., hiding your Internet Protocol (IP) address, is essential for aspiring hackers.
+
 What is an IP address?
 
 An [IP address](https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF) is a unique string of characters that identifies an individual machine, or host, connected to a network. It appears as a grouping of four octets separated by periods, e.g., 192.168.1.204. As such, each of these numbers can be a value ranging from 0 to 255 (2^8), inclusive. In addition to an assortment of IP addresses, each network has a subnet mask (or netmask) with a similar grouping of octets, e.g., 255.255.255.0. Within the subnet mask, the value 255 means that the corresponding octet in the IP address, e.g., 192, will remain the same for all devices on that local network. Conversely, the 0 indicates that the corresponding octet can hold any value within the acceptable range (0-255).
@@ -55,9 +56,11 @@ ifconfig
 ### What can my IP address reveal about me?
 
 Up to now, we have focused the discussion on local network addresses. The information returned from `ifconfig` can only identify your machine on the local area network, such as your home or business. All of the hosts connected to a local network share one **public IP** address, which can be found by searching "What is my IP address?" in a browser. The result that appears is a unique address associated with your private network. While your local IP address contains little information—these addresses are non-unique—your public IP address reveals both your geolocation and Internet Service Provider (ISP). Alone, this information cannot identify an individual machine, but it does provide clues for hackers to learn about a potential target.
+
 What is the purpose of the subnet mask (or netmask)?
 
 [Subnet masks](https://www.youtube.com/watch?v=tcae4TSSMo8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF&index=2) are an organizational tool used to control IP address distribution, since there are a limited number of total IP addresses (2^32 or approximately 4B). By controlling the variability in the network portion of the IP address, i.e., the first three octets (**192**.**168**.**1**.0), businesses and individuals are restricted to the number of IP addresses available for their individual use. As an example, if a corporation was given exclusive rights to address 3.0.0.0 with subnet 255.0.0.0, it would have nearly 17M (2^24) addresses reserved. With the limited supply of IP addresses and the growing demands of IoT, this can become a major issue. For this reason, it is more common to see subnets of 255.255.0.0 or 255.255.255.0, which cut down the number of available addresses to about 66K and 256, respectively.
+
 What is a loop-back address?
 
 The IP address range 127.0.0.0 with subnet mask 255.0.0.0 is reserved for local network testing, i.e., testing the connectivity of your personal devices with "virtual addresses." For example, to confirm that your machine has a functional networking configuration, you can ping any address starting with 127:
@@ -74,7 +77,7 @@ PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.026 ms
 64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.025 ms
 ^C
---- 127.10.0.1 ping statistics ---
+--- 127.0.0.1 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2039ms
 rtt min/avg/max/mdev = 0.016/0.022/0.026/0.004 ms
 ```
@@ -91,7 +94,7 @@ ip address
 ip a
 ```
 
-Similarly, to print the arp table, which shows a mapping between decive MAC and IP addresses:
+Similarly, to print the arp table, which shows a mapping between device MAC and IP addresses:
 
 ```zsh
 ip neighbor
@@ -112,7 +115,7 @@ ip r
 To see a list of active IP addresses, copy the below script into a file called `ipsweep.sh`. This scripts accepts the network address (first three octets of an IP address) as an argument and pings each possible address allowed by the subnet mask. If a response is received, the script will print that address to the console.
 
 ```bash
-#! bin/bash
+#!/bin/bash
 
 if [ "$1" == "" ]
 then
@@ -128,5 +131,5 @@ To execute the script:
 
 ```zsh
 # 192.168.64 as an example network address
-./ipsweep 192.168.64
+./ipsweep.sh 192.168.64
 ```

@@ -2,15 +2,15 @@
 title: Navigating Linux
 description: Learn the basics of the command line with bash.
 date: '2021-10-20'
-image: /images/macbook-code.jpg
+image: macbook-code.jpeg
 categories:
   - Linux
 published: true
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Def from "../components/def.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Def from "../components/Def.svelte"
 
   const basicCommands = [
       {cmd: "cat", desc: "Type out a file (or combine files)"},
@@ -99,7 +99,7 @@ published: true
   ]
 </script>
 
-![Linux Debian command line](/images/linux-debian.jpg)
+![Linux Debian command line](../lib/images/linux-debian.jpeg)
 
 <Heading str="Introduction" />
 
@@ -361,7 +361,7 @@ A process represents a current task running on the computer. Single commands may
 - **Threads:** lightweight processes that run under a main process, sharing a designated number of resources
 - **Kernel threads:** perform housekeeping tasks such as relocating threads between CPU cores
 
-The kernel **scheduler** allocates CPU time to queued processes. Each CPU core has a run and wait queue. When a process enters a **sleep** state, the scheduler moves it to the wait queue until the necessary feedback is received. To manage process scheduling and resource allocation, the operating system assigns each running process a unique process ID **(PID)** number, which Usually follow the order that each process was born in the system. In addition, each process has a parent process ID **(PPID)** and, if the process is multithreaded, a unique thread ID **(TID)**.
+The kernel **scheduler** allocates CPU time to queued processes. Each CPU core has a run and wait queue. When a process enters a **sleep** state, the scheduler moves it to the wait queue until the necessary feedback is received. To manage process scheduling and resource allocation, the operating system assigns each running process a unique process ID **(PID)** number, which usually follows the order that each process was born in the system. In addition, each process has a parent process ID **(PPID)** and, if the process is multithreaded, a unique thread ID **(TID)**.
 
 Users can terminate processes in the terminal shell:
 
@@ -379,7 +379,7 @@ Users can also specify a **nice value** for individual processes to control thei
 renice value pid
 ```
 
-The **load average** breaks down CPU resource consumption over three specified timepoints: 45, 15, and 5 min. These percentages denote the amount of CPU resources demanded by active processes. For example, a load average of 0.5 means that an average of 50% CPU resources were consumed for the specified time period.
+The **load average** breaks down CPU resource consumption over three specified timepoints: 1, 5, and 15 min. These percentages denote the amount of CPU resources demanded by active processes. For example, a load average of 0.5 means that an average of 50% CPU resources were consumed for the specified time period.
 
 With modern machines, each load average should be divided by the number of CPU cores, e.g., a load average of 2.0 for a dual-core system indicates 100% CPU resource consumption. It is possible for normalized load averages to exceed 1.0 for brief periods, but prolonged over-utilization may suggest problems. Load averages may be viewed in the terminal by running either `w`, `top`, or `uptime`.
 
@@ -435,11 +435,11 @@ sudo umount /home
 mount
 ```
 
-Filesystems and data can also be shared across machines through networks. Networks, accessible over the internet, allow grouping of lower-level filesystems into a more universal framework, e.g., the Network Filesystem (**NFS**). For all intensive purposes, NFS can be treated as an other filesystem on the client or server side.
+Filesystems and data can also be shared across machines through networks. Networks, accessible over the internet, allow grouping of lower-level filesystems into a more universal framework, e.g., the Network Filesystem (**NFS**). For all intents and purposes, NFS can be treated as another filesystem on the client or server side.
 
 Each user has a home directory listed under `/home`. The `/root` directory is simply the home of the root user (aka superuser or system administrator). The `/bin` directory contains executable binaries needed to boot the system as well as ubiquitous user commands, such as `cat`, `cp`, `ls`, etc. Though similar, `/sbin` stores executables for system administration, such as `ip`.
 
-Non-essential commands are stored under `/usr/bin` and `/usr/sbin`, which was initially done to allow mounting of the user filesystem at a later stage in the OS startup. However, this practice is mostly considered obselete and, as such, most modern Linux distros symbolically link `/usr/bin` with `/bin` and `/usr/sbin` with `/sbin`, i.e., for all intensive purposes, there are no distinctions between these directory groupings.
+Non-essential commands are stored under `/usr/bin` and `/usr/sbin`, which was initially done to allow mounting of the user filesystem at a later stage in the OS startup. However, this practice is mostly considered obsolete and, as such, most modern Linux distros symbolically link `/usr/bin` with `/bin` and `/usr/sbin` with `/sbin`, i.e., for all intents and purposes, there are no distinctions between these directory groupings.
 
 The `/proc` filesystem contains **virtual files**—files that only exist in memory—that track dynamic kernel data, including information about mounted devices, hardware configurations, CPU, etc. This directory is considered a **pseudo filesystem** because it occupies no permanent space in storage.
 
@@ -603,7 +603,7 @@ zgrep -i less comp-file.gz
 zdiff comp-file1.gz comp-file2.gz
 ```
 
-The **stream editor** tool (`sed`) is a lightweight text processing tool that moves data from an input stream to a working stream for processing and then finally to an output stream. With the 4 `-e` option, `sed` can perform multiple file operations from one line.
+The **stream editor** tool (`sed`) is a lightweight text processing tool that moves data from an input stream to a working stream for processing and then finally to an output stream. With the `-e` option, `sed` can perform multiple file operations from one line.
 
 ```bash
 # substitute every occurrence of string in file
@@ -694,7 +694,7 @@ cat file | cut -d',' -f3
 
 <Heading str="User environment" />
 
-As Linux is a multi-user system, administratos may be interested in knowing the current active users:
+As Linux is a multi-user system, administrators may be interested in knowing the current active users:
 
 ```bash
 # find current user
@@ -705,7 +705,7 @@ who
 who -a
 ```
 
-Each user will have local startup files to customize the user environment. These files supercede system settings such as changing the default text editor and path to executables. At login, Linux first evaluates `/etc/profile` and then searches for user-specific startup files in a particular order. Whichever startup file first discovered becomes the basis for the user environment.
+Each user will have local startup files to customize the user environment. These files supersede system settings such as changing the default text editor and path to executables. At login, Linux first evaluates `/etc/profile` and then searches for user-specific startup files in a particular order. Whichever startup file first discovered becomes the basis for the user environment.
 
 Though startup files are only evaluated once at login, Linux will read and evaluate the `~/rc` file each time a command line shell initiates or spawns a program. For this reason, many users often only concern themselves with the `~/rc` file.
 
@@ -827,13 +827,13 @@ A network is a grouping of computers that share information and resources across
 
 Currently, there are two IP address standards, **IPv4** and **IPv6**, which assign 32-bit and 128-bit addresses, respectively. Though IPv6 is the newer standard, its adoption has been slow because migrating a collection of machines often requires significant effort. Furthermore, **NAT** (Network Address Translation) and similar protocols allow users to share a common IP address across locally networked computers. Internally, it appears as though each machine has a unique address, but externally the local network is presented a node with one unique address.
 
-IPv4 (32-bit) addresses are subdivided into four octets (8-bit segments or bytes). These address are categorized into one of several classes, where class A, B, and C have octets that are either designated as **Net ID** or **Host ID**. This allows for various numbers of unique networks or host machines, which often depends on the needs of the organization.
+IPv4 (32-bit) addresses are subdivided into four octets (8-bit segments or bytes). These addresses are categorized into one of several classes, where class A, B, and C have octets that are either designated as **Net ID** or **Host ID**. This allows for various numbers of unique networks or host machines, which often depends on the needs of the organization.
 
 IP addresses can either be assigned manually (static address) or dynamically through the Dynamic Host Configuration Protocol (**DHCP**). Dynamically-assigned addresses may change every time the machine is rebooted, or even more frequently in some cases.
 
 **Name Resolution** converts IP addresses into the corresponding human-readable hostnames. The hostname of the local machine can be found with the `hostname` command, which may even be used to change the system hostname given admin privileges. There is also a special hostname called **localhost**, which refers to the current machine and always has the address `127.0.0.1`.
 
-**Network configuration files** are essential for establishing functional interfaces. For Ubuntu-based systems, these files are stored located `/etc/network`. Note that each machine can have one or more operational network interfaces, which may be manually activated or deactivated.
+**Network configuration files** are essential for establishing functional interfaces. For Ubuntu-based systems, these files are located at `/etc/network`. Note that each machine can have one or more operational network interfaces, which may be manually activated or deactivated.
 
 Within a network, packets of data are passed between various nodes via a series of routers, which potentially span multiple networks. Servers store the routing tables that contain the addresses of each node on the network.
 

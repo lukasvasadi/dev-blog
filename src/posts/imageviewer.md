@@ -2,7 +2,7 @@
 title: Conceptualizing a viewer for scientific imaging
 description: Considerations for developing a high-performance image viewer.
 date: '2026-01-07'
-image: /images/jameswebb-deep-space.jpg
+image: jameswebb-deep-space.jpeg
 categories:
   - Qt QRhi
   - GPU rendering
@@ -10,14 +10,14 @@ published: false
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
+  import Heading from "../components/Heading.svelte"
 </script>
 
-![James Webb Telescope deep space](/images/jameswebb-deep-space.jpg)
+![James Webb Telescope deep space](../lib/images/jameswebb-deep-space.jpeg)
 
 <Heading str="Introduction" />
 
-Imaging remains one of our primary means to explore the world, encompassing both the macro- and micro-scales. As a complement to the advancements in sensor technology, modern image processing techniques, coupled with machine learning pattern recognition, have enabled quantitative analysis. Alongside these developments, open-source technologies have promoted widespread distribution of scientific imaging research tools. One such example is [Napari](https://napari.org/stable/), a multidimensional image viewer written as a Qt for Python application. Being one of the design decisions, users are able to leverage the enormous Python ecosystem of scientific tools, including lumpy, scipy, pillow, etc.
+Imaging remains one of our primary means to explore the world, encompassing both the macro- and micro-scales. As a complement to the advancements in sensor technology, modern image processing techniques, coupled with machine learning pattern recognition, have enabled quantitative analysis. Alongside these developments, open-source technologies have promoted widespread distribution of scientific imaging research tools. One such example is [Napari](https://napari.org/stable/), a multidimensional image viewer written as a Qt for Python application. Being one of the design decisions, users are able to leverage the enormous Python ecosystem of scientific tools, including numpy, scipy, pillow, etc.
 
 Indeed, Python has become the _de facto_ programming language for scientific computing and machine learning. It is my personal language of choice for general computing tasks, especially those centered on automation. Python is also a popular language for desktop application development, being a first-class supported language for the Qt framework, which is a powerful UI development platform for desktop and embedded systems.
 

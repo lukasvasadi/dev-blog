@@ -2,7 +2,7 @@
 title: How to Git
 description: Learn to version control local and remote code repositories.
 date: '2022-10-25'
-image: /images/git.jpg
+image: git.jpeg
 categories:
   - Git
   - GitHub
@@ -10,15 +10,15 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Tag from "../components/tag.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Tag from "../components/Tag.svelte"
 </script>
 
-![Git commits graphical view](/images/git.jpg)
+![Git commits graphical view](../lib/images/git.jpeg)
 
 <Heading str="Introduction" />
 
-Git is a command line tool created by Linux Torvalds—the creator of Linux—for managing code repositories, specifically versioning and collaboration. It allows developers to track changes to source code, rollback to previous commits, and isolate feature development in sandboxed branches. Modern codebase remote storage platforms, e.g., GitHub, use Git to enable international collaboration.
+Git is a command line tool created by Linus Torvalds—the creator of Linux—for managing code repositories, specifically versioning and collaboration. It allows developers to track changes to source code, rollback to previous commits, and isolate feature development in sandboxed branches. Modern codebase remote storage platforms, e.g., GitHub, use Git to enable international collaboration.
 
 ### Prerequisites
 
@@ -173,7 +173,7 @@ Using `commit` with no parameters will open a text editor, either a console-base
 ```text
 Class to manage external devices connected via serial
 
-Custom class inherits Serial class from pyserial. It includes a modified read method that strips whitespace, e.g., '/r/n', from incoming serial data, as well as a modified write method that adds a newline character to any command string passed as an argument.
+Custom class inherits Serial class from pyserial. It includes a modified read method that strips whitespace, e.g., '\r\n', from incoming serial data, as well as a modified write method that adds a newline character to any command string passed as an argument.
 ```
 
 <Tag msg='Git uses Vim as its default text editor. Though powerful, Vim tends to be less popular among younger developers. Fortunately, git provides the ability to change the default editor in the core configuration file.' />
@@ -371,7 +371,7 @@ Lastly, to update existing submodules with changes:
 git submodule update --remote
 ```
 
-Occassionally, older repositories may contain git submodules with https authentication. In some cases, it may be necessary to convert existing submodules from https to ssh:
+Occasionally, older repositories may contain git submodules with https authentication. In some cases, it may be necessary to convert existing submodules from https to ssh:
 
 ```bash
 perl -i -p -e 's|https://(.*?)/|git@\\1:|g' .gitmodules

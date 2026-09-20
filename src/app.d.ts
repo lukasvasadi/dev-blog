@@ -10,4 +10,13 @@ declare global {
 	}
 }
 
+declare module '*.md' {
+	import type { Component } from 'svelte'
+	import type { Post } from '$lib/types'
+
+	const component: Component
+	export default component
+	export const metadata: Omit<Post, 'slug'>
+}
+
 export {}

@@ -2,7 +2,7 @@
 title: Managing Windows with PowerShell
 description: Learn the basics of the Windows console.
 date: '2022-01-15'
-image: /images/windows-surface-laptop.jpg
+image: windows-surface-laptop.jpeg
 categories:
   - PowerShell
   - Windows
@@ -10,8 +10,8 @@ published: true
 ---
 
 <script lang="js">
-  import Heading from "../components/heading.svelte"
-  import Def from "../components/def.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Def from "../components/Def.svelte"
 
   const basicCommands = [
       {cmd: "Get-History", desc: "Print command history (alias: <code>history</code>)"},
@@ -27,7 +27,7 @@ published: true
   ]
 </script>
 
-![Windows surface laptop](/images/windows-surface-laptop.jpg)
+![Windows surface laptop](../lib/images/windows-surface-laptop.jpeg)
 
 <Heading str="Introduction" />
 
@@ -180,7 +180,7 @@ Invoke-Command -ComputerName image-processing {Get-EventLog -LogName system}
 Invoke-Command -ComputerName comp1,comp2,comp3 {Restart-Computer}
 ```
 
-Note that every PowerShell command entered into the console uses `Invoke-Command` behind the scences, with the local computer accepted as the default machine. All data returned from the remote system(s) are deserialized object representations, meaning that the objects contain all relevant information for the administrator, but have no methods other than `ToString`.
+Note that every PowerShell command entered into the console uses `Invoke-Command` behind the scenes, with the local computer accepted as the default machine. All data returned from the remote system(s) are deserialized object representations, meaning that the objects contain all relevant information for the administrator, but have no methods other than `ToString`.
 
 If not connected to the local network, PowerShell remoting may be facilitated in a browser over https web access. To set up this feature, first install `WindowsPowerShellWebAccess` on the remote machine and then configure user/group privileges.
 

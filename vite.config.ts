@@ -1,6 +1,11 @@
+/// <reference types="vitest/config" />
 import { sveltekit } from '@sveltejs/kit/vite'
+import { imagetools } from 'vite-imagetools'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-	plugins: [sveltekit()]
+	plugins: [imagetools(), sveltekit()],
+	test: {
+		environment: 'node'
+	}
 })

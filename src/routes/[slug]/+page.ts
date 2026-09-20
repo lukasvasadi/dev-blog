@@ -1,4 +1,5 @@
 import { error } from '@sveltejs/kit'
+import { resolveImage } from '$lib/utils'
 
 export async function load({ params }) {
 	const post = await import(`../../posts/${params.slug}.md`)
@@ -7,6 +8,6 @@ export async function load({ params }) {
 
 	return {
 		content: post.default,
-		meta: post.metadata
+		meta: { ...post.metadata, image: resolveImage(post.metadata.image) }
 	}
 }

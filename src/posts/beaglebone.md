@@ -2,7 +2,7 @@
 title: BeagleBone Black
 description: Explore the BeagleBone as an embedded Linux solution for IoT projects.
 date: '2023-11-2'
-image: /images/beaglebone-black.jpg
+image: beaglebone-black.jpeg
 categories:
   - Embedded Linux
   - BeagleBone Black
@@ -10,12 +10,12 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Tag from "../components/tag.svelte"
-  import Iconlist from "../components/iconlist.svelte"
+  import Heading from "../components/Heading.svelte"
+  import Tag from "../components/Tag.svelte"
+  import Iconlist from "../components/Iconlist.svelte"
 </script>
 
-![BeagleBone Black board](/images/beaglebone-black.jpg)
+![BeagleBone Black board](../lib/images/beaglebone-black.jpeg)
 
 <Heading str="Introduction" />
 
@@ -38,11 +38,11 @@ If your BBB was manufactured after 2015, it probably has a Debian image preinsta
 
 <Tag tagtype='info' msg='At the time of writing, only the Buster IoT <a href="https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz">AM3358 Debian 10.3 2020-04-06 4GB SD IoT</a> could be run on the board. The Debian LXQT release, which provides a full graphical user interface, seemed to not trigger the normal system boot process. In addition, all of the compatible Ubuntu releases found on BeagleBone forums had broken links. Given these findings, it is highly recommended to commit to the Debian Buster OS.' />
 
-To install the OS image, download and the img.xz file from the link above and flash the image onto a microSD card with at least 4GB of storage. Many people use [balenaEtcher](https://www.balena.io/etcher/) to flash multimedia storage devices. Once the file has been written, insert the SD card into the port on the bottom side of the BeagleBone PCB. For more information, reference the official "Getting Started" [web tutorial](https://beagleboard.org/getting-started).
+To install the OS image, download the img.xz file from the link above and flash the image onto a microSD card with at least 4GB of storage. Many people use [balenaEtcher](https://www.balena.io/etcher/) to flash multimedia storage devices. Once the file has been written, insert the SD card into the port on the bottom side of the BeagleBone PCB. For more information, reference the official "Getting Started" [web tutorial](https://beagleboard.org/getting-started).
 
 <Tag tagtype='warning' msg='It is critical that the board be powered off before inserting or removing the SD card from the slot reader! To safely power down the board, press and hold the "power" pushbutton located next to the ethernet port. After about 8 seconds, the blue power LED should turn off, indicating a hard shutdown.' />
 
-After inserting the SD card, press and hold the user boot botton located near the USB 2.0 connector and connect the board to the computer with the supplied USB mini/type A cable. When the series of four LEDs start to flash in sequence, release the user boot button and wait for the board to complete startup. The boot button essentially redirects the system startup to target the SD card instead of the default eMMC storage.
+After inserting the SD card, press and hold the user boot button located near the USB 2.0 connector and connect the board to the computer with the supplied USB mini/type A cable. When the series of four LEDs start to flash in sequence, release the user boot button and wait for the board to complete startup. The boot button essentially redirects the system startup to target the SD card instead of the default eMMC storage.
 
 At this time, the BeagleBone can be accessed via the cloud9 web IDE. To launch the IDE, copy and paste the following into a browser window searchbar, selecting the IP address according to the host computer OS:
 
@@ -89,7 +89,7 @@ Although the cloud9 IDE provides a convenient, if clunky, way to access the BBB 
 
 ### SSH
 
-To access the BBB via SSH, we need to first know its IP address. If you are on a home network, this can be relatively straightforward to discover; however, if you are using the BBB for a work project, where the network is loaded with connected devices, this may prove more challenging. Though inelegant, my recommended method for obtaining the BBB IP address, after connecting the board to ethernet and providing power to the 5V barrel input, is to attach a monitor to the mini HDMI port and a keboard to the USB 2.0 host connector, and run either the `ifconfig` or `hostname -I` command from the barebones CLI.
+To access the BBB via SSH, we need to first know its IP address. If you are on a home network, this can be relatively straightforward to discover; however, if you are using the BBB for a work project, where the network is loaded with connected devices, this may prove more challenging. Though inelegant, my recommended method for obtaining the BBB IP address, after connecting the board to ethernet and providing power to the 5V barrel input, is to attach a monitor to the mini HDMI port and a keyboard to the USB 2.0 host connector, and run either the `ifconfig` or `hostname -I` command from the barebones CLI.
 
 As stated in the welcome message, the default login credentials for the Buster IoT distro is `debian:temppwd`.
 
@@ -114,14 +114,14 @@ To update the kernel, execute the `update_kernel.sh` script:
 sudo /opt/scripts/tools/update_kernel.sh
 ```
 
-Natually, the next step is to update and upgrade the distribution packages:
+Naturally, the next step is to update and upgrade the distribution packages:
 
 ```zsh
 sudo apt update
 sudo apt upgrade
 ```
 
-<Tag tagtype='info' msg='At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may be possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.' />
+<Tag tagtype='info' msg='At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.' />
 
 <Heading str="Users" />
 
@@ -145,7 +145,7 @@ sudo su username
 
 <Heading str="Hello world" />
 
-Of course, any embedded Linux tutorial would not be complete without a "Hellow World!" demonstration. Navigate to the user home directory and create a new directory called "code" to store program files:
+Of course, any embedded Linux tutorial would not be complete without a "Hello World!" demonstration. Navigate to the user home directory and create a new directory called "code" to store program files:
 
 ```zsh
 mkdir -p ~/Code/helloworld

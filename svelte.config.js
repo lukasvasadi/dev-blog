@@ -2,10 +2,7 @@ import adapter from '@sveltejs/adapter-vercel'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 import { createHighlighter, bundledLanguages } from 'shiki'
 import { mdsvex, escapeSvelte } from 'mdsvex'
-
-// Markdown enhanced image library @ https://github.com/lzinga/mdsvex-enhanced-images
-// Refer to the Svelte documentation on image rendering @ https://svelte.dev/docs/kit/images
-import enhancedImage from '@lzinga/mdsvex-enhanced-images'
+import remarkPictureImages from './src/lib/remark-picture-images.js'
 
 const highlighter = await createHighlighter({
 	themes: ['one-dark-pro'],
@@ -14,7 +11,7 @@ const highlighter = await createHighlighter({
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.md', '.svx'],
+	extensions: ['.md'],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
 			const html = highlighter.codeToHtml(code, { lang, theme: 'one-dark-pro' })
@@ -23,19 +20,14 @@ const mdsvexOptions = {
 	},
 	remarkPlugins: [
 		[
-			enhancedImage,
+			remarkPictureImages,
 			{
-				// Optional: Attributes to add to **all** `img` tags
+				// Attributes to add to every generated Picture / img
 				attributes: {
 					fetchpriority: 'auto', // Browser default
 					loading: 'eager', // Browser default
 					decoding: 'auto' // Browser default
 				}
-				// Optional: imagetools directives to add to **all** `img` tags
-				// imagetoolsDirectives: {
-				// 	tint: 'rgba(10,33,127)',
-				// 	blur: 10
-				// }
 			}
 		]
 	]
@@ -43,7 +35,7 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.svx', '.md'],
+	extensions: ['.svelte', '.md'],
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter(),

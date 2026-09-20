@@ -2,15 +2,15 @@
 title: CMake
 description: Leverage CMake to automate the build process for C/C++ projects.
 date: '2023-08-15'
-image: /images/macbook-code.jpg
+image: macbook-code.jpeg
 categories:
   - CMake
 published: true
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Tag from "../components/tag.svelte"  
+  import Heading from "../components/Heading.svelte"
+  import Tag from "../components/Tag.svelte"  
 </script>
 
 <Heading str="Introduction" />
@@ -50,7 +50,7 @@ mkdir -p ~/HelloCMake/build
 Create a `~/HelloCMake/main.cpp` file:
 
 ```cpp
-#import <iostream>
+#include <iostream>
 
 using std::cout, std::endl;
 
@@ -108,7 +108,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-install(TARGET hello DESTINATION bin)
+install(TARGETS hello DESTINATION bin)
 ```
 
 With this configuration, we can run the `make install` command with root privileges to install the executable into `/usr/local/bin`:
@@ -148,7 +148,7 @@ Most projects use libraries for reusable source code. Often, these libraries sho
 
 Notice how each subdirectory of the library contains a `CMakeLists.txt` file. This is needed for nested source code directories, but most of these files will only contain one line to point to the next directory in the chain.
 
-Below are the four `CMakeLists.txt` files listed from top to bottom in the directory nest. The high-level file contains most of the project information, including the target library details. The intermediary files contain one command to point to the relevant subdirectory, and the last contains the library definition as well as a pointer to the `include` directory will the header files.
+Below are the four `CMakeLists.txt` files listed from top to bottom in the directory nest. The high-level file contains most of the project information, including the target library details. The intermediary files contain one command to point to the relevant subdirectory, and the last contains the library definition as well as a pointer to the `include` directory with the header files.
 
 ```cmake
 # adder/CMakeLists.txt
@@ -362,7 +362,7 @@ cmake -S .. -B . -G "Visual Studio 16 2019" # specify MSVC version
 
 ### Build types
 
-CMake offers a few different build types, the two most common being `Debug` to `Release`. In `Release` mode, the compiler performs extra operations to optimize the build. To specify the build type:
+CMake offers a few different build types, the two most common being `Debug` and `Release`. In `Release` mode, the compiler performs extra operations to optimize the build. To specify the build type:
 
 ```zsh
 # inside build directory

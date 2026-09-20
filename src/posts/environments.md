@@ -2,7 +2,7 @@
 title: Configuring Python and NodeJS
 description: Use clean development environments for high productivity.
 date: '2022-1-20'
-image: /images/npm-keyboard.jpg
+image: npm-keyboard.jpeg
 categories:
   - Python
   - Node
@@ -12,11 +12,11 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/heading.svelte"
-  import Tag from '../components/tag.svelte'
+  import Heading from "../components/Heading.svelte"
+  import Tag from '../components/Tag.svelte'
 </script>
 
-![MacBook with npm sticker and mechanical keyboard](/images/npm-keyboard.jpg)
+![MacBook with npm sticker and mechanical keyboard](../lib/images/npm-keyboard.jpeg)
 
 <Heading str="Introduction" />
 
@@ -51,8 +51,7 @@ Set-ExecutionPolicy RemoteSigned
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 ```
 
-[Chocolatey](https://chocolatey.org/) is a community-driven general package manager for Windows that eliminates the need for installation wizards. The developers of Chocolatey created a script to automate the installation process. As stated above, to run a script downloaded from the internet, we need to change the security permissions in PowerShell. (This will also be needed later to install the full developer toolchain. See the PowerShell tutorial for more information on security policies.) In an administrative shell, execute the following commands:
-Download and run the installation script:
+[Chocolatey](https://chocolatey.org/) is a community-driven general package manager for Windows that eliminates the need for installation wizards. The developers of Chocolatey created a script to automate the installation process. As stated above, to run a script downloaded from the internet, we need to change the security permissions in PowerShell. (This will also be needed later to install the full developer toolchain. See the PowerShell tutorial for more information on security policies.) In an administrative shell, download and run the installation script:
 
 ```ps1
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -311,13 +310,19 @@ Pyenv also provides an easy way to create and manage virtual environments. To cr
 
 ```zsh
 # assuming you navigated inside the project directory
+pyenv virtualenv 3.11.3 env
+```
+
+To automatically activate the environment when entering the project directory:
+
+```zsh
 pyenv local env
 ```
 
 To deactivate the environment:
 
 ```zsh
-source deactivate
+pyenv deactivate
 ```
 
 ### Node.js
