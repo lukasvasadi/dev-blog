@@ -8,6 +8,9 @@ export async function load({ params }) {
 
 	return {
 		content: post.default,
-		meta: { ...post.metadata, image: resolveImage(post.metadata.image) }
+		meta: {
+			...post.metadata,
+			image: post.metadata.image ? resolveImage(post.metadata.image) : undefined
+		}
 	}
 }
