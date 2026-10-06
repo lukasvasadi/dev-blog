@@ -15,12 +15,6 @@ published: true
 <script>
   import Tag from "../components/Tag.svelte"
   import Heading from "../components/Heading.svelte"
-  import Expression from "../components/Expression.svelte"
-
-  const eq = "x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}"
-
-  const eq1 = "f_t=\\frac{f_{clk}}{(PSC+1)(ARR+1)}"
-  const eq2 = "f_o=\\frac{f_t}{n}"
 </script>
 
 ![STM32 Nucleo board](../lib/images/stm32/stm32.jpeg)
@@ -215,7 +209,7 @@ In this example, we will generate the data points in the CPU at startup; however
 
 ### Calculating the lookup table
 
-Below is a source code snippet that can be integrated into the MCU startup routine. It calculates an output voltage level, <Expression expr="V" mode="inline" />, based on the number of samples, <Expression expr="N" mode="inline" />, and DAC resolution, <Expression expr="R" mode="inline" />.
+Below is a source code snippet that can be integrated into the MCU startup routine. It calculates an output voltage level, $V$, based on the number of samples, $N$, and DAC resolution, $R$.
 
 ```c
 #include <stdint.h>
@@ -245,5 +239,10 @@ int main()
 
 ### Calculating frequency
 
-<Expression expr={eq1}/>
-<Expression expr={eq2}/>
+$$
+f_t = \frac{f_{clk}}{(PSC+1)(ARR+1)}
+$$
+
+$$
+f_o = \frac{f_t}{n}
+$$

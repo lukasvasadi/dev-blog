@@ -1,5 +1,6 @@
 <script>
 	import '../app.css'
+	import 'temml/dist/Temml-Latin-Modern.css'
 	import Header from './Header.svelte'
 	import Footer from './Footer.svelte'
 	let { children } = $props()
