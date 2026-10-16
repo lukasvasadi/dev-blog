@@ -36,11 +36,19 @@ The following resources contain excellent instructions on configuring the Beagle
 
 If your BBB was manufactured after 2015, it probably has a Debian image preinstalled on the eMMC (embedded MultiMediaCard) storage. Prior releases of the board were shipped with an Angstrom distribution. It is also possible to install Ubuntu or Arch Linux images. However, in general, it is recommended to use the supported, i.e., tested, Debian releases. A list of the latest supported images can be found at the [official downloads page](https://beagleboard.org/latest-images).
 
-<Tag tagtype='info' msg='At the time of writing, only the Buster IoT <a href="https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz">AM3358 Debian 10.3 2020-04-06 4GB SD IoT</a> could be run on the board. The Debian LXQT release, which provides a full graphical user interface, seemed to not trigger the normal system boot process. In addition, all of the compatible Ubuntu releases found on BeagleBone forums had broken links. Given these findings, it is highly recommended to commit to the Debian Buster OS.' />
+<Tag type="info">
+
+At the time of writing, only the Buster IoT [AM3358 Debian 10.3 2020-04-06 4GB SD IoT](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz) could be run on the board. The Debian LXQT release, which provides a full graphical user interface, seemed to not trigger the normal system boot process. In addition, all of the compatible Ubuntu releases found on BeagleBone forums had broken links. Given these findings, it is highly recommended to commit to the Debian Buster OS.
+
+</Tag>
 
 To install the OS image, download the img.xz file from the link above and flash the image onto a microSD card with at least 4GB of storage. Many people use [balenaEtcher](https://www.balena.io/etcher/) to flash multimedia storage devices. Once the file has been written, insert the SD card into the port on the bottom side of the BeagleBone PCB. For more information, reference the official "Getting Started" [web tutorial](https://beagleboard.org/getting-started).
 
-<Tag tagtype='warning' msg='It is critical that the board be powered off before inserting or removing the SD card from the slot reader! To safely power down the board, press and hold the "power" pushbutton located next to the ethernet port. After about 8 seconds, the blue power LED should turn off, indicating a hard shutdown.' />
+<Tag type="warning">
+
+It is critical that the board be powered off before inserting or removing the SD card from the slot reader! To safely power down the board, press and hold the "power" pushbutton located next to the ethernet port. After about 8 seconds, the blue power LED should turn off, indicating a hard shutdown.
+
+</Tag>
 
 After inserting the SD card, press and hold the user boot button located near the USB 2.0 connector and connect the board to the computer with the supplied USB mini/type A cable. When the series of four LEDs start to flash in sequence, release the user boot button and wait for the board to complete startup. The boot button essentially redirects the system startup to target the SD card instead of the default eMMC storage.
 
@@ -121,7 +129,11 @@ sudo apt update
 sudo apt upgrade
 ```
 
-<Tag tagtype='info' msg='At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.' />
+<Tag type="info">
+
+At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.
+
+</Tag>
 
 <Heading str="Users" />
 

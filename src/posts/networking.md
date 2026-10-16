@@ -19,7 +19,11 @@ published: false
 
 <Heading str="Introduction" />
 
-<Tag tagtype='warning' msg='The following information is for educational purposes only. It is intended to review general concepts in networking. The author is not a qualified instructor and assumes no responsibility for improper use of the material. Never access another network without express permission from its administrator.' />
+<Tag type="warning">
+
+The following information is for educational purposes only. It is intended to review general concepts in networking. The author is not a qualified instructor and assumes no responsibility for improper use of the material. Never access another network without express permission from its administrator.
+
+</Tag>
 
 Cybersecurity is a burgeoning field that has grown alongside modern technological innovations. Though the sophistication of device security has improved dramatically since the introduction of networks, offensive hacking methods have developed in parallel and caused substantial disruption to industries and governments. Having a basic understanding of networks and common hacker tools can help reduce your vulnerability.
 

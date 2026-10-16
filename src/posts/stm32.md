@@ -23,7 +23,11 @@ published: true
 
 This guide details environment setup for programming [STM32](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) microcontrollers (MCUs) and reviews general low-level functionality, such as configuring GPIO pins, peripherals, and interrupts. The ST website provides a listing of MCUs based on use case, e.g., "High Performance," "Ultra Low Power." However, if unsure about the specific project requirements, simply choose an option from the "Mainstream MCUs."
 
-<Tag msg='All tutorials in this guide refer to the STM32 <a href="https://www.st.com/en/evaluation-tools/nucleo-g431rb.html">Nucleo-G431RB</a> development board. We will also use the JetBrains CLion IDE instead of the STM32CubeIDE for all development. Source code for the tutorials may be found at <a href="https://github.com/lukasvasadi/stm32-tutorial-source">github.com/lukasvasadi/stm32-tutorial-source</a>.' />
+<Tag>
+
+All tutorials in this guide refer to the STM32 [Nucleo-G431RB](https://www.st.com/en/evaluation-tools/nucleo-g431rb.html) development board. We will also use the JetBrains CLion IDE instead of the STM32CubeIDE for all development. Source code for the tutorials may be found at [github.com/lukasvasadi/stm32-tutorial-source](https://github.com/lukasvasadi/stm32-tutorial-source).
+
+</Tag>
 
 ### Why use STM32?
 
@@ -35,7 +39,11 @@ Over the years, especially with the introduction of Arduino, MCU development has
 
 However, while greater abstraction has certainly made STM32 development approachable, this platform still demands a greater level of understanding, both of the hardware and firmware, than Arduino. Specifically, STM32 development frequently involves configuring low-level pinout functions, clocks, and timers, as well as explicit reading and writing of registers. This can be a daunting task for inexperienced engineers and hobbyists, but with dedication and a little effort, the reward can be extraordinary.
 
-<Tag msg='Even though the STM32 platform requires a deeper understanding of hardware development, I have found that programming more advanced features, such as interrupts, is easier than Arduino.' />
+<Tag>
+
+Even though the STM32 platform requires a deeper understanding of hardware development, I have found that programming more advanced features, such as interrupts, is easier than Arduino.
+
+</Tag>
 
 <Heading str="Setup" />
 

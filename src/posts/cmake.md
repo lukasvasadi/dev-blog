@@ -309,11 +309,19 @@ cd build
 cmake .. -DCOMPILE_EXECUTABLE=ON
 ```
 
-<Tag tagtype='warning' msg='Make sure not to include any space between the command line parameter (-D) and the option variable name.' />
+<Tag type="warning">
+
+Make sure not to include any space between the command line parameter (-D) and the option variable name.
+
+</Tag>
 
 <Heading str="Command line options" />
 
-<Tag tagtype='info' msg='You may wish to remove the build directory before subsequent project configurations to guarantee that new changes take effect.' />
+<Tag type="info">
+
+You may wish to remove the build directory before subsequent project configurations to guarantee that new changes take effect.
+
+</Tag>
 
 To recreate the build directory in Unix systems:
 

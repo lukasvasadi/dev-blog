@@ -1,26 +1,31 @@
 <script>
-	import { Info, AlertCircle } from '@lucide/svelte'
+	import { Info, CircleAlert } from '@lucide/svelte'
 
-	export let tagtype = 'info'
-	export let msg = ''
+	const variants = {
+		info: { icon: Info, color: '#5d3af7' },
+		warning: { icon: CircleAlert, color: '#ceb301' }
+	}
+
+	/** @type {{ type?: keyof typeof variants, children?: import('svelte').Snippet }} */
+	let { type = 'info', children } = $props()
+	let { icon: Icon, color } = $derived(variants[type] ?? variants.info)
 </script>
 
-<p class="tag {tagtype}">
-	<span>
-		{#if tagtype == 'info'}
-			<Info fill="#5d3af7" size="34px" />
-		{:else}
-			<AlertCircle fill="#ceb301" size="34px" />
-		{/if}
-	</span>{@html msg}<!-- eslint-disable-line svelte/no-at-html-tags -- msg is hardcoded tag text written in post source, not user input -->
-</p>
+<aside class="tag {type}" role="note">
+	<span aria-hidden="true"><Icon fill={color} size="34px" /></span>
+	{@render children?.()}
+</aside>
 
 <style>
-	p {
+	aside {
 		position: relative;
 		margin-top: 1rem;
 		padding: 1rem;
 		border-radius: 10px;
+	}
+
+	aside > :global(p) {
+		margin: 0;
 	}
 
 	span {

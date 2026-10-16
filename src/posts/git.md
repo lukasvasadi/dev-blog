@@ -48,7 +48,11 @@ GitHub, the repository cloud storage owned by Microsoft, now requires developers
 
 ### Generating an SSH key
 
-<Tag msg='For Windows users, the following commands require a bash-like shell program, such as Git Bash, which is a separate terminal program installed alongside the Git toolchain. You can find this program in the search menu.' />
+<Tag>
+
+For Windows users, the following commands require a bash-like shell program, such as Git Bash, which is a separate terminal program installed alongside the Git toolchain. You can find this program in the search menu.
+
+</Tag>
 
 First, create an SSH key with the email address tied to the GitHub account:
 
@@ -59,7 +63,11 @@ ssh-keygen -t ed25519 -C "account@example.com"
 
 When prompted for a filename, press enter to accept the default. Choose a security passphrase at the next prompt or, alternatively, press enter to proceed without a passphrase.
 
-<Tag msg='If you choose a security passphrase, it will be required for every future commit.' />
+<Tag>
+
+If you choose a security passphrase, it will be required for every future commit.
+
+</Tag>
 
 Start the background SSH agent:
 
@@ -176,7 +184,11 @@ Class to manage external devices connected via serial
 Custom class inherits Serial class from pyserial. It includes a modified read method that strips whitespace, e.g., '\r\n', from incoming serial data, as well as a modified write method that adds a newline character to any command string passed as an argument.
 ```
 
-<Tag msg='Git uses Vim as its default text editor. Though powerful, Vim tends to be less popular among younger developers. Fortunately, git provides the ability to change the default editor in the core configuration file.' />
+<Tag>
+
+Git uses Vim as its default text editor. Though powerful, Vim tends to be less popular among younger developers. Fortunately, git provides the ability to change the default editor in the core configuration file.
+
+</Tag>
 
 To change the default text editor:
 

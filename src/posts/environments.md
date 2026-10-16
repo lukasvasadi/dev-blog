@@ -42,7 +42,11 @@ Virtual environments sidestep these issues by creating sandboxed directories tha
 
 <Heading str="Windows" />
 
-<Tag msg='The following commands require PowerShell, which has more advanced functionality than the command prompt. Further, to run installation scripts in Windows, you must use a shell with administrator privileges. Search for "PowerShell" in the Windows search box, right-click the application, and select "Run as administrator."' />
+<Tag>
+
+The following commands require PowerShell, which has more advanced functionality than the command prompt. Further, to run installation scripts in Windows, you must use a shell with administrator privileges. Search for "PowerShell" in the Windows search box, right-click the application, and select "Run as administrator."
+
+</Tag>
 
 ### Chocolatey
 
@@ -93,7 +97,11 @@ Confirm installation:
 pyenv --version
 ```
 
-<Tag msg='Before proceeding, you must reorder the <code>$Path</code> environment variable to give higher precedence to the binaries stored under pyenv. Otherwise, by default, Windows will search for the Python binaries in its AppData directory. This can be accomplished from the command line, however, I recommend using the environment variable dialog, which can be found via the Windows search box.' />
+<Tag>
+
+Before proceeding, you must reorder the `$Path` environment variable to give higher precedence to the binaries stored under pyenv. Otherwise, by default, Windows will search for the Python binaries in its AppData directory. This can be accomplished from the command line, however, I recommend using the environment variable dialog, which can be found via the Windows search box.
+
+</Tag>
 
 After reordering the environment variables, refresh the shell environment:
 
@@ -372,7 +380,11 @@ node --version
 
 <Heading str="Linux" />
 
-<Tag msg='This tutorial only covers Debian flavors of Linux, e.g., Ubuntu, Pop_OS!.' />
+<Tag>
+
+This tutorial only covers Debian flavors of Linux, e.g., Ubuntu, Pop_OS!.
+
+</Tag>
 
 Before installing any software, it is good practice to update, and possibly upgrade, the existing system packages:
 
