@@ -14,22 +14,19 @@ published: true
 
 <script>
   import Tag from "../components/Tag.svelte"
-  import Heading from "../components/Heading.svelte"
-  import Expression from "../components/Expression.svelte"
-
-  const eq = "x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}"
-
-  const eq1 = "f_t=\\frac{f_{clk}}{(PSC+1)(ARR+1)}"
-  const eq2 = "f_o=\\frac{f_t}{n}"
 </script>
 
 ![STM32 Nucleo board](../lib/images/stm32/stm32.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 This guide details environment setup for programming [STM32](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) microcontrollers (MCUs) and reviews general low-level functionality, such as configuring GPIO pins, peripherals, and interrupts. The ST website provides a listing of MCUs based on use case, e.g., "High Performance," "Ultra Low Power." However, if unsure about the specific project requirements, simply choose an option from the "Mainstream MCUs."
 
-<Tag msg='All tutorials in this guide refer to the STM32 <a href="https://www.st.com/en/evaluation-tools/nucleo-g431rb.html">Nucleo-G431RB</a> development board. We will also use the JetBrains CLion IDE instead of the STM32CubeIDE for all development. Source code for the tutorials may be found at <a href="https://github.com/lukasvasadi/stm32-tutorial-source">github.com/lukasvasadi/stm32-tutorial-source</a>.' />
+<Tag>
+
+All tutorials in this guide refer to the STM32 [Nucleo-G431RB](https://www.st.com/en/evaluation-tools/nucleo-g431rb.html) development board. We will also use the JetBrains CLion IDE instead of the STM32CubeIDE for all development. Source code for the tutorials may be found at [github.com/lukasvasadi/stm32-tutorial-source](https://github.com/lukasvasadi/stm32-tutorial-source).
+
+</Tag>
 
 ### Why use STM32?
 
@@ -41,9 +38,13 @@ Over the years, especially with the introduction of Arduino, MCU development has
 
 However, while greater abstraction has certainly made STM32 development approachable, this platform still demands a greater level of understanding, both of the hardware and firmware, than Arduino. Specifically, STM32 development frequently involves configuring low-level pinout functions, clocks, and timers, as well as explicit reading and writing of registers. This can be a daunting task for inexperienced engineers and hobbyists, but with dedication and a little effort, the reward can be extraordinary.
 
-<Tag msg='Even though the STM32 platform requires a deeper understanding of hardware development, I have found that programming more advanced features, such as interrupts, is easier than Arduino.' />
+<Tag>
 
-<Heading str="Setup" />
+Even though the STM32 platform requires a deeper understanding of hardware development, I have found that programming more advanced features, such as interrupts, is easier than Arduino.
+
+</Tag>
+
+## Setup
 
 This setup is suitable for Windows, Linux, and macOS. The main requirements are as follows:
 
@@ -137,7 +138,7 @@ ST provides an Eclipse-based IDE ([STM32CubeIDE](https://www.st.com/en/developme
 
 A complete guide to configuring CLion for STM32 can be found at [STM32CubeMX projects](https://www.jetbrains.com/help/clion/embedded-development.html). Once you have installed the compiler toolchain and dependencies, and configured the IDE, you are ready to begin development!
 
-<Heading str="Blink" />
+## Blink
 
 With the default pin configuration, we have access to the onboard green LED (LD2) via GPIO PA5. To blink the LED, we need to modify the `Core/Src/main.c` file, specifically calling the pin toggle function in the infinite loop:
 
@@ -156,7 +157,7 @@ while (1) {
 
 In the above code sample, the "HAL" function prefix is an acronym for "Hardware Abstraction Layer," which is a large ST library of convenience functions for controlling peripherals.
 
-<Heading str="Serial communication with interrupts" />
+## Serial communication with interrupts
 
 In this section, we will configure the Nucleo-G431RB for serial communication with interrupts. In the infinite loop, the MCU will continue running the blink routine from the example above, but upon receiving serial input, the processor will stop execution on the main thread and run a dedicated event handler function.
 
@@ -205,7 +206,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 ```
 
-<Heading str="Analog waveform generator" />
+## Analog waveform generator
 
 In this section, we will configure the microcontroller digital-to-analog converter (DAC) peripheral to output an analog waveform based on a lookup table stored in direct memory access (DMA). Reading the voltage level from DMA to the DAC output register (DOC) completely sidesteps the CPU, preventing MCU throttling and improving speed.
 
@@ -215,7 +216,7 @@ In this example, we will generate the data points in the CPU at startup; however
 
 ### Calculating the lookup table
 
-Below is a source code snippet that can be integrated into the MCU startup routine. It calculates an output voltage level, <Expression expr="V" mode="inline" />, based on the number of samples, <Expression expr="N" mode="inline" />, and DAC resolution, <Expression expr="R" mode="inline" />.
+Below is a source code snippet that can be integrated into the MCU startup routine. It calculates an output voltage level, $V$, based on the number of samples, $N$, and DAC resolution, $R$.
 
 ```c
 #include <stdint.h>
@@ -245,5 +246,10 @@ int main()
 
 ### Calculating frequency
 
-<Expression expr={eq1}/>
-<Expression expr={eq2}/>
+$$
+f_t = \frac{f_{clk}}{(PSC+1)(ARR+1)}
+$$
+
+$$
+f_o = \frac{f_t}{n}
+$$

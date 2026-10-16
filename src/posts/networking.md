@@ -10,16 +10,19 @@ published: false
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
   import Iconlist from "../components/Iconlist.svelte"
 </script>
 
 ![Kali Linux logo](../lib/images/kali-logo.png)
 
-<Heading str="Introduction" />
+## Introduction
 
-<Tag tagtype='warning' msg='The following information is for educational purposes only. It is intended to review general concepts in networking. The author is not a qualified instructor and assumes no responsibility for improper use of the material. Never access another network without express permission from its administrator.' />
+<Tag type="warning">
+
+The following information is for educational purposes only. It is intended to review general concepts in networking. The author is not a qualified instructor and assumes no responsibility for improper use of the material. Never access another network without express permission from its administrator.
+
+</Tag>
 
 Cybersecurity is a burgeoning field that has grown alongside modern technological innovations. Though the sophistication of device security has improved dramatically since the introduction of networks, offensive hacking methods have developed in parallel and caused substantial disruption to industries and governments. Having a basic understanding of networks and common hacker tools can help reduce your vulnerability.
 
@@ -39,7 +42,7 @@ The following web resources contain substantial information on network analysis,
 - [Linux Basics for Hackers](https://www.hackers-arise.com/linux-fundamentals)
 - [Network Chuck — Hack Your IT Career](https://networkchuck.com/)
 
-<Heading str="Networks" />
+## Networks
 
 The vast majority of hacking activity occurs over a network connection. As such, knowing how to interact with networks while maintaining secrecy, e.g., hiding your Internet Protocol (IP) address, is essential for aspiring hackers.
 

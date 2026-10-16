@@ -8,110 +8,38 @@ categories:
 published: true
 ---
 
-<script>
-  import Heading from "../components/Heading.svelte"
-  import Def from "../components/Def.svelte"
-
-  const basicCommands = [
-      {cmd: "cat", desc: "Type out a file (or combine files)"},
-      {cmd: "head", desc: "Show first few lines of file"},
-      {cmd: "tail", desc: "show last few lines of file"},
-      {cmd: "less", desc: "View contents of larger files with scroll-back"},
-      {cmd: "man", desc: "View documentation"},
-      {cmd: "sudo", desc: "Grant admin privileges"},
-      {cmd: "|", desc: "Pipe data between programs"},
-      {cmd: "ssh", desc: "Secure shell remote machine"},
-      {cmd: "pwd", desc: "Print working directory"},
-      {cmd: "cd", desc: "Change directory"},
-  ]
-
-  const wildCards = [
-      {cmd: "?", desc: "Match any single character"},
-      {cmd: "*", desc: "Match any string of characters"},
-      {cmd: "[set]", desc: "Match any character in set, e.g., [adf]"},
-      {cmd: "[!set]", desc: "Match any character not in set"},
-  ]
-
-  const topOptions = [
-      {cmd: "t", desc: "Show or hide summary"},
-      {cmd: "m", desc: "Show or hide memory"},
-      {cmd: "A", desc: "Sort list by highest resource consumers"},
-      {cmd: "r", desc: "Renice specific process"},
-      {cmd: "k", desc: "Kill specific process"},
-      {cmd: "f", desc: "Enter configuration utility"},
-  ]
-
-  const diffOptions = [
-      {cmd: "c", desc: "Provide listing of differences"},
-      {cmd: "r", desc: "Recursively compare subdirectories"},
-      {cmd: "i", desc: "Ignore capitalization"},
-      {cmd: "w", desc: "Ignore whitespace"},
-      {cmd: "q", desc: "State whether files are different without providing context"},
-  ]
-
-  const viCommands = [
-      {cmd: "vi file", desc: "Open file in editor"},
-      {cmd: "vi -r file", desc: "Open file in recovery mode after system crash"},
-      {cmd: ":r file2", desc: "Read in a second file and insert at current position"},
-      {cmd: ":w", desc: "Write to file"},
-      {cmd: ":w file", desc: "Write out to a new file"},
-      {cmd: ":w! file2", desc: "Overwrite file2"},
-      {cmd: ":wq", desc: "Write to file and exit"},
-      {cmd: ":q", desc: "Quit"},
-      {cmd: ":q!", desc: "Quit even with unsaved modifications"},
-  ]
-
-  const emacsCommands = [
-      {cmd: "emacs file", desc: "Open file in editor"},
-      {cmd: "CTRL+x i", desc: "Insert at current position in file"},
-      {cmd: "CTRL+x s", desc: "Save all files"},
-      {cmd: "CTRL+x CTRL+w", desc: "Write to file and rename"},
-      {cmd: "CTRL+x CTRL+s", desc: "Save current file"},
-      {cmd: "CTRL+x CTRL+c", desc: "Exit after prompted to save any modified files"},
-  ]
-
-  const envVariables = [
-      {cmd: "$HOME", desc: "Points to user home directory"},
-      {cmd: "$PATH", desc: "Points to ordered list of paths (separated by <code>:</code>) that is scanned to find programs/scripts"},
-      {cmd: "$SHELL", desc: "Points to default command shell (usually)"},
-  ]
-
-  const consoleShortcuts = [
-      {cmd: "CTRL+L", desc: "Clear terminal window"},
-      {cmd: "CTRL+D", desc: "Exit current shell"},
-      {cmd: "CTRL+Z", desc: "Suspend current process in background"},
-      {cmd: "CTRL+C", desc: "Kill current process"},
-      {cmd: "CTRL+H", desc: "Backspace"},
-      {cmd: "CTRL+A", desc: "Go to beginning of line"},
-      {cmd: "CTRL+W", desc: "Delete word before cursor"},
-      {cmd: "CTRL+U", desc: "Delete line up to cursor position"},
-      {cmd: "CTRL+E", desc: "Go to end of line"},
-      {cmd: "Tab", desc: "Autocomplete"},
-  ]
-
-  const networkingTools = [
-      {cmd: "ethtool", desc: "Queries network interfaces"},
-      {cmd: "netstat", desc: "Displays all active network connections and routing tables"},
-      {cmd: "nmap", desc: "Scans open ports—critical for security analysis"},
-      {cmd: "tcpdump", desc: "Dumps network traffic"},
-      {cmd: "mtr", desc: "Displays same information as <code>ping</code> and <code>traceroute</code> in continuous output"},
-      {cmd: "dig", desc: "Tests DNS workings"},
-  ]
-</script>
-
 ![Linux Debian command line](../lib/images/linux-debian.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 Linux was created by Linus Torvalds in 1991 as a free alternative to Unix. Though similar, Linux is technically a Unix clone, not a direct descendant like macOS. For this reason, many of the same commands can be used interchangeably on Mac and Linux systems.
 
 All material was based on [Introduction to Linux](https://www.edx.org/course/introduction-to-linux), a course from the Linux Foundation hosted on edX. This course covers each topic with greater detail and also includes tutorials on bash shell scripting.
 
-<Heading str="Basic utilities" />
+## Basic utilities
 
 Below is a selection of common command line utilities:
 
-<Def array={basicCommands} />
+`cat`
+: Type out a file (or combine files)
+`head`
+: Show first few lines of file
+`tail`
+: show last few lines of file
+`less`
+: View contents of larger files with scroll-back
+`man`
+: View documentation
+`sudo`
+: Grant admin privileges
+`|`
+: Pipe data between programs
+`ssh`
+: Secure shell remote machine
+`pwd`
+: Print working directory
+`cd`
+: Change directory
 
 A command is the name of the program being executed. Many commands accept arguments and options, the latter often preceded with one or two dashes, e.g., `-p` or `--print`, to be distinguishable.
 
@@ -129,7 +57,7 @@ sudo shutdown -r
 sudo reboot
 ```
 
-<Heading str="Pipeline" />
+## Pipeline
 
 The Unix/Linux philosophy is to combine multiple short programs to produce complex results. To achieve this coordination, data (output) from one program may be "piped" into another using the | command. A string of connected commands is called a pipeline.
 
@@ -139,7 +67,7 @@ command1 | command2 | command3
 
 In the above example, command2 and command3 can start acting on output from previous commands in the pipeline while those commands are still being executed. This feature utilizes the multicore functionality of modern computer systems and does not require data to be written to temporary files.
 
-<Heading str="Navigating the filesystem" />
+## Navigating the filesystem
 
 Locate programs with the `which` or `whereis` utilities, the latter of which searches across a broader range of system directories and also prints the location of the man page:
 
@@ -197,7 +125,7 @@ pushd bin
 
 Similarly, use `popd` to revisit previous directories in reverse order. The `dirs` command prints a list of recent directories stacked with `pushd`.
 
-<Heading str="Working with files" />
+## Working with files
 
 There are many command line utilities for viewing and reconfiguring files.
 
@@ -265,7 +193,7 @@ mv filename new-filename
 mv filename new-filepath
 ```
 
-<Heading str="Searching for files" />
+## Searching for files
 
 When interacting with the command line, there are always three standard file streams in operation: `stdin`, `stdout`, and `stderr`. Usually, `stdin` captures user input while `stdout` and `stderr` print feedback via the terminal, though `stderr` often targets an error logging file. The user can redirect these file streams to pipe data between various files and programs.
 
@@ -295,7 +223,14 @@ find . -name "zip"
 
 With these commands, it is often useful to employ wildcards:
 
-<Def array={wildCards} />
+`?`
+: Match any single character
+`*`
+: Match any string of characters
+`[set]`
+: Match any character in set, e.g., `[adf]`
+`[!set]`
+: Match any character not in set
 
 For example, to find a file that has "ba" followed by a third unknown character, with extension `.out`, search for `ba?.out`. Similarly, if the entire name is unknown, search for `*.out`. Putting the search criteria in quotes will expand the search beyond the working directory: `ls "*.out"`.
 
@@ -306,7 +241,7 @@ Using the `-exec` parameter, the `find` utility can also run other commands on t
 find -name "*.swp" -exec rm {} ';'
 ```
 
-<Heading str="Package managers" />
+## Package managers
 
 There are two broad families of package managers for Debian and RPM distributions. Each family has a high-level tool, e.g., `apt`, `dnf`, `zypper`, that manage low-level utilities, e.g., `dpkg`, `rpm`, which are responsible for unpacking and installing individual packages. These high-level tools also coordinate the installation of dependencies, or packages that are needed to support the current installation.
 
@@ -325,7 +260,7 @@ apt-get dist-upgrade
 apt-cache search foo
 ```
 
-<Heading str="Accessing documentation" />
+## Accessing documentation
 
 The general philosophy of computer administration is to not memorize every single shell command along with its parameters. Instead, administrators can reference the `man` pages—short for "manual"—or utilize either the `help` command or `--help` option.
 
@@ -351,7 +286,7 @@ man --help
 
 Typing `help` at the command line will print consolidated information about built-in commands.
 
-<Heading str="Processes" />
+## Processes
 
 A process represents a current task running on the computer. Single commands may launch one or more processes simultaneously. The operating system is responsible for allocating system resources to each process for optimized performance. There are several types of processes:
 
@@ -407,7 +342,18 @@ pstree
 
 In addition to printing load averages, the `top` command presents a real-time system monitor of all processes, listed in order of CPU resource consumption. The list constantly updates until the user quits with `q`. Other interactive options for top include:
 
-<Def array={topOptions} />
+`t`
+: Show or hide summary
+`m`
+: Show or hide memory
+`A`
+: Sort list by highest resource consumers
+`r`
+: Renice specific process
+`k`
+: Kill specific process
+`f`
+: Enter configuration utility
 
 Various commands exist to manage future program execution and suspend currently active processes:
 
@@ -420,7 +366,7 @@ command arguments
 sleep 10s
 ```
 
-<Heading str="File operations" />
+## File operations
 
 In the Linux, the root directory, denoted by `/`, represents the beginning of the filesystem hierarchy. There are many types of filesystems, which often differ across operating systems, but the most common belong to the **journaling** variety: ext4, xfs, btrfs, jfs. It is often the case that an OS will have several different filesystems, each stored on a particular disk partition. Important programs to run the system are isolated on the **root** partition. Each partition has to be mounted on the filesystem tree to be accessible by the user. Examples of common mount points, which appear as empty directories, include `/`, `/home`, and `/var`.
 
@@ -460,7 +406,16 @@ diff3 filename1 referencefile filename2
 
 This utility provides several options:
 
-<Def array={diffOptions} />
+`c`
+: Provide listing of differences
+`r`
+: Recursively compare subdirectories
+`i`
+: Ignore capitalization
+`w`
+: Ignore whitespace
+`q`
+: State whether files are different without providing context
 
 Unlike other operating systems, Linux does not rely on file extensions to direct operations, e.g., a file with the ".txt" extension could be a binary executable. Users can employ the `file` utility to ascertain file type and other important information.
 
@@ -494,7 +449,7 @@ gzip -d foo
 gunzip foo
 ```
 
-<Heading str="Text editors" />
+## Text editors
 
 There are several ways to create and edit text files from the command line:
 
@@ -520,7 +475,24 @@ Vi has three different modes:
 
 Some of the most useful commands for vi include:
 
-<Def array={viCommands} />
+`vi file`
+: Open file in editor
+`vi -r file`
+: Open file in recovery mode after system crash
+`:r file2`
+: Read in a second file and insert at current position
+`:w`
+: Write to file
+`:w file`
+: Write out to a new file
+`:w! file2`
+: Overwrite file2
+`:wq`
+: Write to file and exit
+`:q`
+: Quit
+`:q!`
+: Quit even with unsaved modifications
 
 When using vi, an external command shell can be opened with `sh`. Otherwise, commands may be executed inside the editor prompt with `!`:
 
@@ -531,9 +503,20 @@ When using vi, an external command shell can be opened with `sh`. Otherwise, com
 
 The emacs editor is a popular alternative to vi that executes commands using the CTRL and ALT/ESC keys, instead of special characters. (For a full tutorial, start emacs and type CTRL+h followed by the letter t.) Some of the most common command key combinations include:
 
-<Def array={emacsCommands} />
+`emacs file`
+: Open file in editor
+`CTRL+x i`
+: Insert at current position in file
+`CTRL+x s`
+: Save all files
+`CTRL+x CTRL+w`
+: Write to file and rename
+`CTRL+x CTRL+s`
+: Save current file
+`CTRL+x CTRL+c`
+: Exit after prompted to save any modified files
 
-<Heading str="Manipulating text" />
+## Manipulating text
 
 The `cat` utility is used to concatenate files as well as print file contents to the terminal:
 
@@ -692,7 +675,7 @@ For columnated files, the `cut` utility can extract specific columns of data bas
 cat file | cut -d',' -f3
 ```
 
-<Heading str="User environment" />
+## User environment
 
 As Linux is a multi-user system, administrators may be interested in knowing the current active users:
 
@@ -777,7 +760,12 @@ source ~/rc
 
 Some important variables include:
 
-<Def array={envVariables} />
+`$HOME`
+: Points to user home directory
+`$PATH`
+: Points to ordered list of paths (separated by `:`) that is scanned to find programs/scripts
+`$SHELL`
+: Points to default command shell (usually)
 
 Previous shell commands can be cycled with the ↑ and ↓ keys or viewed as a list with the `history` command (command history stored in `~/_history`). Alternatively, the most recent command can be called with `!!` or a specific command in history may be searched with `CTRL+R` followed by character hints.
 
@@ -797,7 +785,26 @@ history
 
 The following keyboard shortcuts may help speed up tasks in the console:
 
-<Def array={consoleShortcuts} />
+`CTRL+L`
+: Clear terminal window
+`CTRL+D`
+: Exit current shell
+`CTRL+Z`
+: Suspend current process in background
+`CTRL+C`
+: Kill current process
+`CTRL+H`
+: Backspace
+`CTRL+A`
+: Go to beginning of line
+`CTRL+W`
+: Delete word before cursor
+`CTRL+U`
+: Delete line up to cursor position
+`CTRL+E`
+: Go to end of line
+`Tab`
+: Autocomplete
 
 Every file in Unix-based operating systems has an owner and is associated with certain groups, all of whom have varying degrees of permissions and read/write access. These permissions can be changed manually:
 
@@ -821,7 +828,7 @@ chmod u+x,g-w filename
 chmod 754 filename
 ```
 
-<Heading str="Networking operations" />
+## Networking operations
 
 A network is a grouping of computers that share information and resources across communication channels. Each device connected to the network must have at least one unique identifier known as the **IP** (Internet Protocol) address, which is used to route packets information through the network. In addition to the actual data content, these packets contain headers that inform each subsequent machine of its sender, destination, and sequence in the data stream.
 
@@ -863,7 +870,18 @@ traceroute address
 
 Other common networking tools include:
 
-<Def array={networkingTools} />
+`ethtool`
+: Queries network interfaces
+`netstat`
+: Displays all active network connections and routing tables
+`nmap`
+: Scans open ports—critical for security analysis
+`tcpdump`
+: Dumps network traffic
+`mtr`
+: Displays same information as `ping` and `traceroute` in continuous output
+`dig`
+: Tests DNS workings
 
 Downloading files from a network, such as an internet webpage, can be accomplished with `wget`. This tool supports large file downloads, recursive downloads, password-sensitive downloads, and large-file downloads.
 

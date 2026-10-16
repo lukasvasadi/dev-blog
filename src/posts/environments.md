@@ -12,13 +12,12 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from '../components/Tag.svelte'
 </script>
 
 ![MacBook with npm sticker and mechanical keyboard](../lib/images/npm-keyboard.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 This tutorial covers the installation process for Python and Node.js using system package managers, i.e., Chocolatey for Windows, Homebrew for macOS, and the Advanced Package Tool (APT) for Debian flavors of Linux. It also covers how to create and manage virtual environments for Python.
 
@@ -40,9 +39,13 @@ Virtual environments sidestep these issues by creating sandboxed directories tha
 
 [Node.js](https://nodejs.org/en) is an open-source JavaScript runtime (server environment) that allows developers to create full stack web, desktop, and mobile apps with one language. (Prior to Node.js, JavaScript could only be run in the browser.) It uses the V8 JavaScript engine—developed by Google for its Chrome browser—to function as a scripting language similar to Python. One of its most popular use cases is as the back-end of the Electron framework, which packages web applications into standalone desktop apps, e.g., Visual Studio Code, Slack, WhatsApp.
 
-<Heading str="Windows" />
+## Windows
 
-<Tag msg='The following commands require PowerShell, which has more advanced functionality than the command prompt. Further, to run installation scripts in Windows, you must use a shell with administrator privileges. Search for "PowerShell" in the Windows search box, right-click the application, and select "Run as administrator."' />
+<Tag>
+
+The following commands require PowerShell, which has more advanced functionality than the command prompt. Further, to run installation scripts in Windows, you must use a shell with administrator privileges. Search for "PowerShell" in the Windows search box, right-click the application, and select "Run as administrator."
+
+</Tag>
 
 ### Chocolatey
 
@@ -93,7 +96,11 @@ Confirm installation:
 pyenv --version
 ```
 
-<Tag msg='Before proceeding, you must reorder the <code>$Path</code> environment variable to give higher precedence to the binaries stored under pyenv. Otherwise, by default, Windows will search for the Python binaries in its AppData directory. This can be accomplished from the command line, however, I recommend using the environment variable dialog, which can be found via the Windows search box.' />
+<Tag>
+
+Before proceeding, you must reorder the `$Path` environment variable to give higher precedence to the binaries stored under pyenv. Otherwise, by default, Windows will search for the Python binaries in its AppData directory. This can be accomplished from the command line, however, I recommend using the environment variable dialog, which can be found via the Windows search box.
+
+</Tag>
 
 After reordering the environment variables, refresh the shell environment:
 
@@ -209,7 +216,7 @@ Confirm Node.js activation:
 node --version
 ```
 
-<Heading str="macOS" />
+## macOS
 
 ### Homebrew
 
@@ -370,9 +377,13 @@ Confirm Node installation:
 node --version
 ```
 
-<Heading str="Linux" />
+## Linux
 
-<Tag msg='This tutorial only covers Debian flavors of Linux, e.g., Ubuntu, Pop_OS!.' />
+<Tag>
+
+This tutorial only covers Debian flavors of Linux, e.g., Ubuntu, Pop_OS!.
+
+</Tag>
 
 Before installing any software, it is good practice to update, and possibly upgrade, the existing system packages:
 

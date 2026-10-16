@@ -10,14 +10,13 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
   import Iconlist from "../components/Iconlist.svelte"
 </script>
 
 ![BeagleBone Black board](../lib/images/beaglebone-black.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 The BeagleBone Black (BBB) is a completely open-source single-board computer (SBC). The organization that oversees its development ([BeagleBone.org](https://beagleboard.org/)), has made both the PCB design and Debian-based Linux OS image available to the public. This means that anyone can manufacture the board or modify its design—for instance, to incorporate the processor into a standalone product—as well as customize the operating system.
 
@@ -30,17 +29,25 @@ The following resources contain excellent instructions on configuring the Beagle
 - [BeagleBoard.org](https://beagleboard.org/)
 - [Exploring BeagleBone](https://www.amazon.com/gp/product/1119533163/ref=ox_sc_act_image_1?smid=AHNEEZ9CVAP3Q&psc=1)
 
-<Heading str="OS installation" />
+## OS installation
 
 ### Flashing Debian
 
 If your BBB was manufactured after 2015, it probably has a Debian image preinstalled on the eMMC (embedded MultiMediaCard) storage. Prior releases of the board were shipped with an Angstrom distribution. It is also possible to install Ubuntu or Arch Linux images. However, in general, it is recommended to use the supported, i.e., tested, Debian releases. A list of the latest supported images can be found at the [official downloads page](https://beagleboard.org/latest-images).
 
-<Tag tagtype='info' msg='At the time of writing, only the Buster IoT <a href="https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz">AM3358 Debian 10.3 2020-04-06 4GB SD IoT</a> could be run on the board. The Debian LXQT release, which provides a full graphical user interface, seemed to not trigger the normal system boot process. In addition, all of the compatible Ubuntu releases found on BeagleBone forums had broken links. Given these findings, it is highly recommended to commit to the Debian Buster OS.' />
+<Tag type="info">
+
+At the time of writing, only the Buster IoT [AM3358 Debian 10.3 2020-04-06 4GB SD IoT](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz) could be run on the board. The Debian LXQT release, which provides a full graphical user interface, seemed to not trigger the normal system boot process. In addition, all of the compatible Ubuntu releases found on BeagleBone forums had broken links. Given these findings, it is highly recommended to commit to the Debian Buster OS.
+
+</Tag>
 
 To install the OS image, download the img.xz file from the link above and flash the image onto a microSD card with at least 4GB of storage. Many people use [balenaEtcher](https://www.balena.io/etcher/) to flash multimedia storage devices. Once the file has been written, insert the SD card into the port on the bottom side of the BeagleBone PCB. For more information, reference the official "Getting Started" [web tutorial](https://beagleboard.org/getting-started).
 
-<Tag tagtype='warning' msg='It is critical that the board be powered off before inserting or removing the SD card from the slot reader! To safely power down the board, press and hold the "power" pushbutton located next to the ethernet port. After about 8 seconds, the blue power LED should turn off, indicating a hard shutdown.' />
+<Tag type="warning">
+
+It is critical that the board be powered off before inserting or removing the SD card from the slot reader! To safely power down the board, press and hold the "power" pushbutton located next to the ethernet port. After about 8 seconds, the blue power LED should turn off, indicating a hard shutdown.
+
+</Tag>
 
 After inserting the SD card, press and hold the user boot button located near the USB 2.0 connector and connect the board to the computer with the supplied USB mini/type A cable. When the series of four LEDs start to flash in sequence, release the user boot button and wait for the board to complete startup. The boot button essentially redirects the system startup to target the SD card instead of the default eMMC storage.
 
@@ -83,7 +90,7 @@ The output should resemble:
 BeagleBoard.org Debian Buster IoT Image 2020-04-06
 ```
 
-<Heading str="Walk the dog" />
+## Walk the dog
 
 Although the cloud9 IDE provides a convenient, if clunky, way to access the BBB filesystem and write scripts, the BeagleBoard Foundation has stated that its support will eventually be discontinued. Regardless, Linux purists would probably prefer a more traditional command line interface (CLI).
 
@@ -99,7 +106,7 @@ Use the output from `hostname -I`, e.g., `246.87.148.7`, to ssh into the BeagleB
 ssh debian@246.87.148.7
 ```
 
-<Heading str="Updates" />
+## Updates
 
 After establishing a remote session, the first item to tackle should be updating the boot/maintenance scripts, which are accessed as a `git` repository. To update the scripts, navigate to `/opt/scripts` and run `git pull`:
 
@@ -121,9 +128,13 @@ sudo apt update
 sudo apt upgrade
 ```
 
-<Tag tagtype='info' msg='At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.' />
+<Tag type="info">
 
-<Heading str="Users" />
+At the time of writing, performing an upgrade results in one dpkg error for the cloud9 package, suggesting that the BeagleBoard Foundation has already implemented the removal of cloud9 support. This error seems to be harmless, though it may possibly be resolved by recursively deleting the associated cloud9 and bone101 directories.
+
+</Tag>
+
+## Users
 
 In many cases, you may want to add a user to the system. To create a new user:
 
@@ -143,7 +154,7 @@ To switch users:
 sudo su username
 ```
 
-<Heading str="Hello world" />
+## Hello world
 
 Of course, any embedded Linux tutorial would not be complete without a "Hello World!" demonstration. Navigate to the user home directory and create a new directory called "code" to store program files:
 
