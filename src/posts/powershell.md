@@ -11,20 +11,6 @@ published: true
 
 <script lang="js">
   import Heading from "../components/Heading.svelte"
-  import Def from "../components/Def.svelte"
-
-  const basicCommands = [
-      {cmd: "Get-History", desc: "Print command history (alias: `history`)"},
-      {cmd: "Where-Object", desc: "Select object from collection based on property values (alias: `where`)"},
-      {cmd: "Get-Process", desc: "Find all running processes (alias: `gps`)"},
-      {cmd: "Get-Service", desc: "Find all running services (alias: `gsv`) "},
-      {cmd: "Write-Warning", desc: "Prints warning message string argument to console with PowerShell formatting"},
-      {cmd: "Write-Error", desc: "Prints error message string argument to console with PowerShell formatting"},
-      {cmd: "Write-Output", desc: "Print variable value to console while preserving object properties"},
-      {cmd: "Write-Host", desc: "Print to console without preserving object properties"},
-      {cmd: "refreshenv", desc: "Refresh environment variables"},
-      {cmd: "cls", desc: "Clear shell"},
-  ]
 </script>
 
 ![Windows surface laptop](../lib/images/windows-surface-laptop.jpeg)
@@ -46,7 +32,26 @@ PowerShell is case insensitive and operates with cmdlets that follow a verb-noun
 
 <Heading str="Basic utilities" />
 
-<Def items={basicCommands} />
+`Get-History`
+: Print command history (alias: `history`)
+`Where-Object`
+: Select object from collection based on property values (alias: `where`)
+`Get-Process`
+: Find all running processes (alias: `gps`)
+`Get-Service`
+: Find all running services (alias: `gsv`)
+`Write-Warning`
+: Prints warning message string argument to console with PowerShell formatting
+`Write-Error`
+: Prints error message string argument to console with PowerShell formatting
+`Write-Output`
+: Print variable value to console while preserving object properties
+`Write-Host`
+: Print to console without preserving object properties
+`refreshenv`
+: Refresh environment variables
+`cls`
+: Clear shell
 
 Sometimes it may be useful to write shell comments, e.g., during webinars or broadcasts. Similar to Unix, comments in PowerShell are preceded with `#`, however, block comments may be written between the `<#` and `#>` symbols.
 

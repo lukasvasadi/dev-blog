@@ -10,93 +10,6 @@ published: true
 
 <script>
   import Heading from "../components/Heading.svelte"
-  import Def from "../components/Def.svelte"
-
-  const basicCommands = [
-      {cmd: "cat", desc: "Type out a file (or combine files)"},
-      {cmd: "head", desc: "Show first few lines of file"},
-      {cmd: "tail", desc: "show last few lines of file"},
-      {cmd: "less", desc: "View contents of larger files with scroll-back"},
-      {cmd: "man", desc: "View documentation"},
-      {cmd: "sudo", desc: "Grant admin privileges"},
-      {cmd: "|", desc: "Pipe data between programs"},
-      {cmd: "ssh", desc: "Secure shell remote machine"},
-      {cmd: "pwd", desc: "Print working directory"},
-      {cmd: "cd", desc: "Change directory"},
-  ]
-
-  const wildCards = [
-      {cmd: "?", desc: "Match any single character"},
-      {cmd: "*", desc: "Match any string of characters"},
-      {cmd: "[set]", desc: "Match any character in set, e.g., [adf]"},
-      {cmd: "[!set]", desc: "Match any character not in set"},
-  ]
-
-  const topOptions = [
-      {cmd: "t", desc: "Show or hide summary"},
-      {cmd: "m", desc: "Show or hide memory"},
-      {cmd: "A", desc: "Sort list by highest resource consumers"},
-      {cmd: "r", desc: "Renice specific process"},
-      {cmd: "k", desc: "Kill specific process"},
-      {cmd: "f", desc: "Enter configuration utility"},
-  ]
-
-  const diffOptions = [
-      {cmd: "c", desc: "Provide listing of differences"},
-      {cmd: "r", desc: "Recursively compare subdirectories"},
-      {cmd: "i", desc: "Ignore capitalization"},
-      {cmd: "w", desc: "Ignore whitespace"},
-      {cmd: "q", desc: "State whether files are different without providing context"},
-  ]
-
-  const viCommands = [
-      {cmd: "vi file", desc: "Open file in editor"},
-      {cmd: "vi -r file", desc: "Open file in recovery mode after system crash"},
-      {cmd: ":r file2", desc: "Read in a second file and insert at current position"},
-      {cmd: ":w", desc: "Write to file"},
-      {cmd: ":w file", desc: "Write out to a new file"},
-      {cmd: ":w! file2", desc: "Overwrite file2"},
-      {cmd: ":wq", desc: "Write to file and exit"},
-      {cmd: ":q", desc: "Quit"},
-      {cmd: ":q!", desc: "Quit even with unsaved modifications"},
-  ]
-
-  const emacsCommands = [
-      {cmd: "emacs file", desc: "Open file in editor"},
-      {cmd: "CTRL+x i", desc: "Insert at current position in file"},
-      {cmd: "CTRL+x s", desc: "Save all files"},
-      {cmd: "CTRL+x CTRL+w", desc: "Write to file and rename"},
-      {cmd: "CTRL+x CTRL+s", desc: "Save current file"},
-      {cmd: "CTRL+x CTRL+c", desc: "Exit after prompted to save any modified files"},
-  ]
-
-  const envVariables = [
-      {cmd: "$HOME", desc: "Points to user home directory"},
-      {cmd: "$PATH", desc: "Points to ordered list of paths (separated by `:`) that is scanned to find programs/scripts"},
-      {cmd: "$SHELL", desc: "Points to default command shell (usually)"},
-  ]
-
-  const consoleShortcuts = [
-      {cmd: "CTRL+L", desc: "Clear terminal window"},
-      {cmd: "CTRL+D", desc: "Exit current shell"},
-      {cmd: "CTRL+Z", desc: "Suspend current process in background"},
-      {cmd: "CTRL+C", desc: "Kill current process"},
-      {cmd: "CTRL+H", desc: "Backspace"},
-      {cmd: "CTRL+A", desc: "Go to beginning of line"},
-      {cmd: "CTRL+W", desc: "Delete word before cursor"},
-      {cmd: "CTRL+U", desc: "Delete line up to cursor position"},
-      {cmd: "CTRL+E", desc: "Go to end of line"},
-      {cmd: "Tab", desc: "Autocomplete"},
-  ]
-
-  const networkingTools = [
-      {cmd: "ethtool", desc: "Queries network interfaces"},
-      {cmd: "netstat", desc: "Displays all active network connections and routing tables"},
-      {cmd: "nmap", desc: "Scans open ports—critical for security analysis"},
-      {cmd: "tcpdump", desc: "Dumps network traffic"},
-      {cmd: "mtr", desc: "Displays same information as `ping` and `traceroute` in continuous output"},
-      {cmd: "dig", desc: "Tests DNS workings"},
-  ]
 </script>
 
 ![Linux Debian command line](../lib/images/linux-debian.jpeg)
@@ -111,7 +24,26 @@ All material was based on [Introduction to Linux](https://www.edx.org/course/int
 
 Below is a selection of common command line utilities:
 
-<Def items={basicCommands} />
+`cat`
+: Type out a file (or combine files)
+`head`
+: Show first few lines of file
+`tail`
+: show last few lines of file
+`less`
+: View contents of larger files with scroll-back
+`man`
+: View documentation
+`sudo`
+: Grant admin privileges
+`|`
+: Pipe data between programs
+`ssh`
+: Secure shell remote machine
+`pwd`
+: Print working directory
+`cd`
+: Change directory
 
 A command is the name of the program being executed. Many commands accept arguments and options, the latter often preceded with one or two dashes, e.g., `-p` or `--print`, to be distinguishable.
 
@@ -295,7 +227,14 @@ find . -name "zip"
 
 With these commands, it is often useful to employ wildcards:
 
-<Def items={wildCards} />
+`?`
+: Match any single character
+`*`
+: Match any string of characters
+`[set]`
+: Match any character in set, e.g., `[adf]`
+`[!set]`
+: Match any character not in set
 
 For example, to find a file that has "ba" followed by a third unknown character, with extension `.out`, search for `ba?.out`. Similarly, if the entire name is unknown, search for `*.out`. Putting the search criteria in quotes will expand the search beyond the working directory: `ls "*.out"`.
 
@@ -407,7 +346,18 @@ pstree
 
 In addition to printing load averages, the `top` command presents a real-time system monitor of all processes, listed in order of CPU resource consumption. The list constantly updates until the user quits with `q`. Other interactive options for top include:
 
-<Def items={topOptions} />
+`t`
+: Show or hide summary
+`m`
+: Show or hide memory
+`A`
+: Sort list by highest resource consumers
+`r`
+: Renice specific process
+`k`
+: Kill specific process
+`f`
+: Enter configuration utility
 
 Various commands exist to manage future program execution and suspend currently active processes:
 
@@ -460,7 +410,16 @@ diff3 filename1 referencefile filename2
 
 This utility provides several options:
 
-<Def items={diffOptions} />
+`c`
+: Provide listing of differences
+`r`
+: Recursively compare subdirectories
+`i`
+: Ignore capitalization
+`w`
+: Ignore whitespace
+`q`
+: State whether files are different without providing context
 
 Unlike other operating systems, Linux does not rely on file extensions to direct operations, e.g., a file with the ".txt" extension could be a binary executable. Users can employ the `file` utility to ascertain file type and other important information.
 
@@ -520,7 +479,24 @@ Vi has three different modes:
 
 Some of the most useful commands for vi include:
 
-<Def items={viCommands} />
+`vi file`
+: Open file in editor
+`vi -r file`
+: Open file in recovery mode after system crash
+`:r file2`
+: Read in a second file and insert at current position
+`:w`
+: Write to file
+`:w file`
+: Write out to a new file
+`:w! file2`
+: Overwrite file2
+`:wq`
+: Write to file and exit
+`:q`
+: Quit
+`:q!`
+: Quit even with unsaved modifications
 
 When using vi, an external command shell can be opened with `sh`. Otherwise, commands may be executed inside the editor prompt with `!`:
 
@@ -531,7 +507,18 @@ When using vi, an external command shell can be opened with `sh`. Otherwise, com
 
 The emacs editor is a popular alternative to vi that executes commands using the CTRL and ALT/ESC keys, instead of special characters. (For a full tutorial, start emacs and type CTRL+h followed by the letter t.) Some of the most common command key combinations include:
 
-<Def items={emacsCommands} />
+`emacs file`
+: Open file in editor
+`CTRL+x i`
+: Insert at current position in file
+`CTRL+x s`
+: Save all files
+`CTRL+x CTRL+w`
+: Write to file and rename
+`CTRL+x CTRL+s`
+: Save current file
+`CTRL+x CTRL+c`
+: Exit after prompted to save any modified files
 
 <Heading str="Manipulating text" />
 
@@ -777,7 +764,12 @@ source ~/rc
 
 Some important variables include:
 
-<Def items={envVariables} />
+`$HOME`
+: Points to user home directory
+`$PATH`
+: Points to ordered list of paths (separated by `:`) that is scanned to find programs/scripts
+`$SHELL`
+: Points to default command shell (usually)
 
 Previous shell commands can be cycled with the ↑ and ↓ keys or viewed as a list with the `history` command (command history stored in `~/_history`). Alternatively, the most recent command can be called with `!!` or a specific command in history may be searched with `CTRL+R` followed by character hints.
 
@@ -797,7 +789,26 @@ history
 
 The following keyboard shortcuts may help speed up tasks in the console:
 
-<Def items={consoleShortcuts} />
+`CTRL+L`
+: Clear terminal window
+`CTRL+D`
+: Exit current shell
+`CTRL+Z`
+: Suspend current process in background
+`CTRL+C`
+: Kill current process
+`CTRL+H`
+: Backspace
+`CTRL+A`
+: Go to beginning of line
+`CTRL+W`
+: Delete word before cursor
+`CTRL+U`
+: Delete line up to cursor position
+`CTRL+E`
+: Go to end of line
+`Tab`
+: Autocomplete
 
 Every file in Unix-based operating systems has an owner and is associated with certain groups, all of whom have varying degrees of permissions and read/write access. These permissions can be changed manually:
 
@@ -863,7 +874,18 @@ traceroute address
 
 Other common networking tools include:
 
-<Def items={networkingTools} />
+`ethtool`
+: Queries network interfaces
+`netstat`
+: Displays all active network connections and routing tables
+`nmap`
+: Scans open ports—critical for security analysis
+`tcpdump`
+: Dumps network traffic
+`mtr`
+: Displays same information as `ping` and `traceroute` in continuous output
+`dig`
+: Tests DNS workings
 
 Downloading files from a network, such as an internet webpage, can be accomplished with `wget`. This tool supports large file downloads, recursive downloads, password-sensitive downloads, and large-file downloads.
 

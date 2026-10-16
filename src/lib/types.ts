@@ -7,8 +7,3 @@ export type Post = {
 	categories: string[]
 	published: boolean
 }
-
-export type CommandList = {
-	cmd: string
-	desc: string
-}
