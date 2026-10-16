@@ -10,14 +10,13 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
   import Iconlist from "../components/Iconlist.svelte"
 </script>
 
 ![BeagleBone Black board](../lib/images/beaglebone-black.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 The BeagleBone Black (BBB) is a completely open-source single-board computer (SBC). The organization that oversees its development ([BeagleBone.org](https://beagleboard.org/)), has made both the PCB design and Debian-based Linux OS image available to the public. This means that anyone can manufacture the board or modify its design—for instance, to incorporate the processor into a standalone product—as well as customize the operating system.
 
@@ -30,7 +29,7 @@ The following resources contain excellent instructions on configuring the Beagle
 - [BeagleBoard.org](https://beagleboard.org/)
 - [Exploring BeagleBone](https://www.amazon.com/gp/product/1119533163/ref=ox_sc_act_image_1?smid=AHNEEZ9CVAP3Q&psc=1)
 
-<Heading str="OS installation" />
+## OS installation
 
 ### Flashing Debian
 
@@ -91,7 +90,7 @@ The output should resemble:
 BeagleBoard.org Debian Buster IoT Image 2020-04-06
 ```
 
-<Heading str="Walk the dog" />
+## Walk the dog
 
 Although the cloud9 IDE provides a convenient, if clunky, way to access the BBB filesystem and write scripts, the BeagleBoard Foundation has stated that its support will eventually be discontinued. Regardless, Linux purists would probably prefer a more traditional command line interface (CLI).
 
@@ -107,7 +106,7 @@ Use the output from `hostname -I`, e.g., `246.87.148.7`, to ssh into the BeagleB
 ssh debian@246.87.148.7
 ```
 
-<Heading str="Updates" />
+## Updates
 
 After establishing a remote session, the first item to tackle should be updating the boot/maintenance scripts, which are accessed as a `git` repository. To update the scripts, navigate to `/opt/scripts` and run `git pull`:
 
@@ -135,7 +134,7 @@ At the time of writing, performing an upgrade results in one dpkg error for the 
 
 </Tag>
 
-<Heading str="Users" />
+## Users
 
 In many cases, you may want to add a user to the system. To create a new user:
 
@@ -155,7 +154,7 @@ To switch users:
 sudo su username
 ```
 
-<Heading str="Hello world" />
+## Hello world
 
 Of course, any embedded Linux tutorial would not be complete without a "Hello World!" demonstration. Navigate to the user home directory and create a new directory called "code" to store program files:
 

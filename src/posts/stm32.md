@@ -14,12 +14,11 @@ published: true
 
 <script>
   import Tag from "../components/Tag.svelte"
-  import Heading from "../components/Heading.svelte"
 </script>
 
 ![STM32 Nucleo board](../lib/images/stm32/stm32.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 This guide details environment setup for programming [STM32](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) microcontrollers (MCUs) and reviews general low-level functionality, such as configuring GPIO pins, peripherals, and interrupts. The ST website provides a listing of MCUs based on use case, e.g., "High Performance," "Ultra Low Power." However, if unsure about the specific project requirements, simply choose an option from the "Mainstream MCUs."
 
@@ -45,7 +44,7 @@ Even though the STM32 platform requires a deeper understanding of hardware devel
 
 </Tag>
 
-<Heading str="Setup" />
+## Setup
 
 This setup is suitable for Windows, Linux, and macOS. The main requirements are as follows:
 
@@ -139,7 +138,7 @@ ST provides an Eclipse-based IDE ([STM32CubeIDE](https://www.st.com/en/developme
 
 A complete guide to configuring CLion for STM32 can be found at [STM32CubeMX projects](https://www.jetbrains.com/help/clion/embedded-development.html). Once you have installed the compiler toolchain and dependencies, and configured the IDE, you are ready to begin development!
 
-<Heading str="Blink" />
+## Blink
 
 With the default pin configuration, we have access to the onboard green LED (LD2) via GPIO PA5. To blink the LED, we need to modify the `Core/Src/main.c` file, specifically calling the pin toggle function in the infinite loop:
 
@@ -158,7 +157,7 @@ while (1) {
 
 In the above code sample, the "HAL" function prefix is an acronym for "Hardware Abstraction Layer," which is a large ST library of convenience functions for controlling peripherals.
 
-<Heading str="Serial communication with interrupts" />
+## Serial communication with interrupts
 
 In this section, we will configure the Nucleo-G431RB for serial communication with interrupts. In the infinite loop, the MCU will continue running the blink routine from the example above, but upon receiving serial input, the processor will stop execution on the main thread and run a dedicated event handler function.
 
@@ -207,7 +206,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 }
 ```
 
-<Heading str="Analog waveform generator" />
+## Analog waveform generator
 
 In this section, we will configure the microcontroller digital-to-analog converter (DAC) peripheral to output an analog waveform based on a lookup table stored in direct memory access (DMA). Reading the voltage level from DMA to the DAC output register (DOC) completely sidesteps the CPU, preventing MCU throttling and improving speed.
 

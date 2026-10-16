@@ -10,11 +10,7 @@ published: false
 
 ![Julia REPL](https://upload.wikimedia.org/wikipedia/commons/d/db/Julia1.1.1.jpg)
 
-<script>
-  import Heading from "../components/Heading.svelte"
-</script>
-
-<Heading str="Introduction" />
+## Introduction
 
 Julia is a modern programming language released in 2011. It has been developed and maintained by researchers at MIT. Being a modern language, Julia has learned from its predecessors and combines some of the best features of low-level languages (performance) and high-level languages (elegance, simple syntax). Specifically, Julia was designed to address the common "two language" problem, where software is typically prototyped in a high-level language, such as Python, for fast development and then later translated to a low-level language, such as C++, for performance.
 
@@ -38,7 +34,7 @@ brew install julia
 sudo apt install julia
 ```
 
-<Heading str="REPL and package manager" />
+## REPL and package manager
 
 Julia provides a read-eval-print loop (REPL) as an interactive shell to test simple expressions, run scripts, and manage packages. After downloading Julia, you can start the REPL with the `julia` command in the terminal. Inside this new prompt, you can either evaluate expressions or access the package manager with `]`. To exit the package manager, press backspace or CTRL+C; to exit the REPL environment, execute the `exit()` command.
 
@@ -46,7 +42,7 @@ Julia provides a read-eval-print loop (REPL) as an interactive shell to test sim
 
 Similar to Python, Julia provides virtual environments to sandbox packages for a specific project.
 
-<Heading str="Basic commands and syntax" />
+## Basic commands and syntax
 
 ```julia
 ?println

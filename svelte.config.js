@@ -5,6 +5,7 @@ import { mdsvex, escapeSvelte } from 'mdsvex'
 import remarkMath from 'remark-math'
 import remarkMathTemml from './src/lib/remark-math-temml.js'
 import remarkDeflist from './src/lib/remark-deflist.js'
+import remarkHeadingLinks from './src/lib/remark-heading-links.js'
 import remarkPictureImages from './src/lib/remark-picture-images.js'
 
 const dev = process.env.NODE_ENV === 'development'
@@ -48,6 +49,7 @@ const mdsvexOptions = {
 		remarkMath, // Parses $...$ and $$...$$; must run before remarkMathTemml
 		remarkMathTemml,
 		remarkDeflist, // Turns "term\n: definition" paragraphs into <dl>
+		remarkHeadingLinks, // Gives h2-h4 a slug id and a link to themselves
 		[
 			remarkPictureImages,
 			{

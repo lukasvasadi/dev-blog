@@ -16,7 +16,7 @@ published: false
 
 ![NVIDIA graphics cards](../lib/images/nvidia-gpu.jpeg)
 
-## <a id="introduction">Introduction</a>
+## Introduction
 
 CUDA is a C/C++ API that allows developers to access the GPU for accelerated computing. For Python, the most performant option to target the GPU is the `pyCUDA` library, which exposes the entire CUDA API, but requires writing C code in docstrings. An attractive alternative is using the `Numba` library, which provides a **_just-in-time_** compiling function decorator. This allows the optimization of certain functions that handle data processing without changing the entire program, and without mixing C source code.
 
@@ -26,7 +26,7 @@ CUDA is a C/C++ API that allows developers to access the GPU for accelerated com
 - Python &geq;3.4
 - NumPy &geq;1.10
 
-## <a id="compiling-for-the-cpu">Compiling for the CPU</a>
+## Compiling for the CPU
 
 In addition to compiling Python functions for the GPU, by default, Numba targets the CPU.
 

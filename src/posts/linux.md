@@ -8,19 +8,15 @@ categories:
 published: true
 ---
 
-<script>
-  import Heading from "../components/Heading.svelte"
-</script>
-
 ![Linux Debian command line](../lib/images/linux-debian.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 Linux was created by Linus Torvalds in 1991 as a free alternative to Unix. Though similar, Linux is technically a Unix clone, not a direct descendant like macOS. For this reason, many of the same commands can be used interchangeably on Mac and Linux systems.
 
 All material was based on [Introduction to Linux](https://www.edx.org/course/introduction-to-linux), a course from the Linux Foundation hosted on edX. This course covers each topic with greater detail and also includes tutorials on bash shell scripting.
 
-<Heading str="Basic utilities" />
+## Basic utilities
 
 Below is a selection of common command line utilities:
 
@@ -61,7 +57,7 @@ sudo shutdown -r
 sudo reboot
 ```
 
-<Heading str="Pipeline" />
+## Pipeline
 
 The Unix/Linux philosophy is to combine multiple short programs to produce complex results. To achieve this coordination, data (output) from one program may be "piped" into another using the | command. A string of connected commands is called a pipeline.
 
@@ -71,7 +67,7 @@ command1 | command2 | command3
 
 In the above example, command2 and command3 can start acting on output from previous commands in the pipeline while those commands are still being executed. This feature utilizes the multicore functionality of modern computer systems and does not require data to be written to temporary files.
 
-<Heading str="Navigating the filesystem" />
+## Navigating the filesystem
 
 Locate programs with the `which` or `whereis` utilities, the latter of which searches across a broader range of system directories and also prints the location of the man page:
 
@@ -129,7 +125,7 @@ pushd bin
 
 Similarly, use `popd` to revisit previous directories in reverse order. The `dirs` command prints a list of recent directories stacked with `pushd`.
 
-<Heading str="Working with files" />
+## Working with files
 
 There are many command line utilities for viewing and reconfiguring files.
 
@@ -197,7 +193,7 @@ mv filename new-filename
 mv filename new-filepath
 ```
 
-<Heading str="Searching for files" />
+## Searching for files
 
 When interacting with the command line, there are always three standard file streams in operation: `stdin`, `stdout`, and `stderr`. Usually, `stdin` captures user input while `stdout` and `stderr` print feedback via the terminal, though `stderr` often targets an error logging file. The user can redirect these file streams to pipe data between various files and programs.
 
@@ -245,7 +241,7 @@ Using the `-exec` parameter, the `find` utility can also run other commands on t
 find -name "*.swp" -exec rm {} ';'
 ```
 
-<Heading str="Package managers" />
+## Package managers
 
 There are two broad families of package managers for Debian and RPM distributions. Each family has a high-level tool, e.g., `apt`, `dnf`, `zypper`, that manage low-level utilities, e.g., `dpkg`, `rpm`, which are responsible for unpacking and installing individual packages. These high-level tools also coordinate the installation of dependencies, or packages that are needed to support the current installation.
 
@@ -264,7 +260,7 @@ apt-get dist-upgrade
 apt-cache search foo
 ```
 
-<Heading str="Accessing documentation" />
+## Accessing documentation
 
 The general philosophy of computer administration is to not memorize every single shell command along with its parameters. Instead, administrators can reference the `man` pages—short for "manual"—or utilize either the `help` command or `--help` option.
 
@@ -290,7 +286,7 @@ man --help
 
 Typing `help` at the command line will print consolidated information about built-in commands.
 
-<Heading str="Processes" />
+## Processes
 
 A process represents a current task running on the computer. Single commands may launch one or more processes simultaneously. The operating system is responsible for allocating system resources to each process for optimized performance. There are several types of processes:
 
@@ -370,7 +366,7 @@ command arguments
 sleep 10s
 ```
 
-<Heading str="File operations" />
+## File operations
 
 In the Linux, the root directory, denoted by `/`, represents the beginning of the filesystem hierarchy. There are many types of filesystems, which often differ across operating systems, but the most common belong to the **journaling** variety: ext4, xfs, btrfs, jfs. It is often the case that an OS will have several different filesystems, each stored on a particular disk partition. Important programs to run the system are isolated on the **root** partition. Each partition has to be mounted on the filesystem tree to be accessible by the user. Examples of common mount points, which appear as empty directories, include `/`, `/home`, and `/var`.
 
@@ -453,7 +449,7 @@ gzip -d foo
 gunzip foo
 ```
 
-<Heading str="Text editors" />
+## Text editors
 
 There are several ways to create and edit text files from the command line:
 
@@ -520,7 +516,7 @@ The emacs editor is a popular alternative to vi that executes commands using the
 `CTRL+x CTRL+c`
 : Exit after prompted to save any modified files
 
-<Heading str="Manipulating text" />
+## Manipulating text
 
 The `cat` utility is used to concatenate files as well as print file contents to the terminal:
 
@@ -679,7 +675,7 @@ For columnated files, the `cut` utility can extract specific columns of data bas
 cat file | cut -d',' -f3
 ```
 
-<Heading str="User environment" />
+## User environment
 
 As Linux is a multi-user system, administrators may be interested in knowing the current active users:
 
@@ -832,7 +828,7 @@ chmod u+x,g-w filename
 chmod 754 filename
 ```
 
-<Heading str="Networking operations" />
+## Networking operations
 
 A network is a grouping of computers that share information and resources across communication channels. Each device connected to the network must have at least one unique identifier known as the **IP** (Internet Protocol) address, which is used to route packets information through the network. In addition to the actual data content, these packets contain headers that inform each subsequent machine of its sender, destination, and sequence in the data stream.
 

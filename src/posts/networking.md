@@ -10,14 +10,13 @@ published: false
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
   import Iconlist from "../components/Iconlist.svelte"
 </script>
 
 ![Kali Linux logo](../lib/images/kali-logo.png)
 
-<Heading str="Introduction" />
+## Introduction
 
 <Tag type="warning">
 
@@ -43,7 +42,7 @@ The following web resources contain substantial information on network analysis,
 - [Linux Basics for Hackers](https://www.hackers-arise.com/linux-fundamentals)
 - [Network Chuck — Hack Your IT Career](https://networkchuck.com/)
 
-<Heading str="Networks" />
+## Networks
 
 The vast majority of hacking activity occurs over a network connection. As such, knowing how to interact with networks while maintaining secrecy, e.g., hiding your Internet Protocol (IP) address, is essential for aspiring hackers.
 

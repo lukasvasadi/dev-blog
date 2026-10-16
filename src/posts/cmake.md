@@ -9,15 +9,14 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"  
 </script>
 
-<Heading str="Introduction" />
+## Introduction
 
 CMake is an open-source, cross-platform automation tool for generating C/C++ Makefiles, which can then be used to build the source. It has become the _de facto_ build system for the developer community as well as major companies, such as Qt and ST Microelectronics.
 
-<Heading str="Installation" />
+## Installation
 
 See below for platform-specific commands to install the CMake toolchain. The rest of the tutorial will use Unix-style commands, but these should be directly transferable to Windows systems. Note that each platform also requires a dedicated compiler for C/C++ applications.
 
@@ -39,7 +38,7 @@ brew install cmake llvm
 sudo apt install make cmake gcc g++ gdb
 ```
 
-<Heading str="Basics" />
+## Basics
 
 CMake relies on a top-level file called `CMakeLists.txt`, which should be created in the same directory as the source. (It is good practice to separate source code and build files.) To demonstrate a CMake project, we can create a `HelloCMake` directory with a `build` subdirectory:
 
@@ -123,7 +122,7 @@ Now we can run the application from anywhere in the file system:
 hello
 ```
 
-<Heading str="Libraries" />
+## Libraries
 
 Most projects use libraries for reusable source code. Often, these libraries should be placed in a dedicated subdirectory, such as is shown below with the library named `basicmath`:
 
@@ -233,7 +232,7 @@ Optionally, you can choose to only target the library during the build routine, 
 cmake --build . --target basicmath
 ```
 
-<Heading str="Variables" />
+## Variables
 
 In CMake, variables can be defined in the top-level `CMakeLists.txt` file and accessed in all subdirectories. By convention, variable names are written in all caps. To create a variable, use the `set` function to define its name and value, separated by a space:
 
@@ -272,7 +271,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)  # Force compiler to implement stated standa
 set(CMAKE_CXX_EXTENSIONS        OFF) # Prevent non-standard language extensions
 ```
 
-<Heading str="Options" />
+## Options
 
 CMake options are similar to variables, but only hold ON/OFF (True/False) values. Options defined in the CMake file can be used with conditional statements to control function execution, e.g., whether or not to compile the executable:
 
@@ -315,7 +314,7 @@ Make sure not to include any space between the command line parameter (-D) and t
 
 </Tag>
 
-<Heading str="Command line options" />
+## Command line options
 
 <Tag type="info">
 

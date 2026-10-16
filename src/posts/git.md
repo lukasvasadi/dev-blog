@@ -10,13 +10,12 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
 </script>
 
 ![Git commits graphical view](../lib/images/git.jpeg)
 
-<Heading str="Introduction" />
+## Introduction
 
 Git is a command line tool created by Linus Torvalds—the creator of Linux—for managing code repositories, specifically versioning and collaboration. It allows developers to track changes to source code, rollback to previous commits, and isolate feature development in sandboxed branches. Modern codebase remote storage platforms, e.g., GitHub, use Git to enable international collaboration.
 
@@ -42,7 +41,7 @@ Linux:
 sudo apt install git
 ```
 
-<Heading str='Authentication' />
+## Authentication
 
 GitHub, the repository cloud storage owned by Microsoft, now requires developers to authenticate their machines with SSH keys for added security. The official [online tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) covers all steps to generate an SSH key and add it to a GitHub account. These steps have been consolidated below for convenience.
 
@@ -95,7 +94,7 @@ cat ~/.ssh/id_ed25519.pub
 
 This key must be added to the authorized SSH key list in the GitHub account settings. More detailed instructions for listing authorized keys can be found at the [online tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-<Heading str='Repositories' />
+## Repositories
 
 Often, the first step to managing a project is to create or clone a git repository. GitHub is the most common remote repository web application, allowing developers to store large code bases, track changes, and collaborate. Before creating a new repository, you may wish to change the initial branch default name to "main". This setting only needs to be changed once and, though not strictly necessary, may help to avoid extra steps when initializing future repositories. To update the default branch name:
 
@@ -138,7 +137,7 @@ Likewise, to clone a repository from GitHub:
 git clone git@github.com:username/reponame
 ```
 
-<Heading str='Commits' />
+## Commits
 
 In git, a commit deposits new or modified code to the repository, usually with a subject line or description of the changes.
 
@@ -243,7 +242,7 @@ Lastly, to switch between local branches without committing changes:
 git stash
 ```
 
-<Heading str='Branches' />
+## Branches
 
 ### Creating branches
 
@@ -345,7 +344,7 @@ git merge --abort
 
 Otherwise, you will have to manually edit the source code to determine which set of changes should persist. Then, you will have to create a new commit to formally complete the merge process.
 
-<Heading str='Submodules' />
+## Submodules
 
 [Submodules](https://www.git-scm.com/book/en/v2/Git-Tools-Submodules) are one way to incorporate code from other projects that exist as git repositories. This is especially useful if the other repository contains library source code used across several projects. To add another repository as a submodule:
 
