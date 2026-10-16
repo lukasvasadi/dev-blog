@@ -72,7 +72,7 @@ published: true
 
   const envVariables = [
       {cmd: "$HOME", desc: "Points to user home directory"},
-      {cmd: "$PATH", desc: "Points to ordered list of paths (separated by <code>:</code>) that is scanned to find programs/scripts"},
+      {cmd: "$PATH", desc: "Points to ordered list of paths (separated by `:`) that is scanned to find programs/scripts"},
       {cmd: "$SHELL", desc: "Points to default command shell (usually)"},
   ]
 
@@ -94,7 +94,7 @@ published: true
       {cmd: "netstat", desc: "Displays all active network connections and routing tables"},
       {cmd: "nmap", desc: "Scans open ports—critical for security analysis"},
       {cmd: "tcpdump", desc: "Dumps network traffic"},
-      {cmd: "mtr", desc: "Displays same information as <code>ping</code> and <code>traceroute</code> in continuous output"},
+      {cmd: "mtr", desc: "Displays same information as `ping` and `traceroute` in continuous output"},
       {cmd: "dig", desc: "Tests DNS workings"},
   ]
 </script>
@@ -111,7 +111,7 @@ All material was based on [Introduction to Linux](https://www.edx.org/course/int
 
 Below is a selection of common command line utilities:
 
-<Def array={basicCommands} />
+<Def items={basicCommands} />
 
 A command is the name of the program being executed. Many commands accept arguments and options, the latter often preceded with one or two dashes, e.g., `-p` or `--print`, to be distinguishable.
 
@@ -295,7 +295,7 @@ find . -name "zip"
 
 With these commands, it is often useful to employ wildcards:
 
-<Def array={wildCards} />
+<Def items={wildCards} />
 
 For example, to find a file that has "ba" followed by a third unknown character, with extension `.out`, search for `ba?.out`. Similarly, if the entire name is unknown, search for `*.out`. Putting the search criteria in quotes will expand the search beyond the working directory: `ls "*.out"`.
 
@@ -407,7 +407,7 @@ pstree
 
 In addition to printing load averages, the `top` command presents a real-time system monitor of all processes, listed in order of CPU resource consumption. The list constantly updates until the user quits with `q`. Other interactive options for top include:
 
-<Def array={topOptions} />
+<Def items={topOptions} />
 
 Various commands exist to manage future program execution and suspend currently active processes:
 
@@ -460,7 +460,7 @@ diff3 filename1 referencefile filename2
 
 This utility provides several options:
 
-<Def array={diffOptions} />
+<Def items={diffOptions} />
 
 Unlike other operating systems, Linux does not rely on file extensions to direct operations, e.g., a file with the ".txt" extension could be a binary executable. Users can employ the `file` utility to ascertain file type and other important information.
 
@@ -520,7 +520,7 @@ Vi has three different modes:
 
 Some of the most useful commands for vi include:
 
-<Def array={viCommands} />
+<Def items={viCommands} />
 
 When using vi, an external command shell can be opened with `sh`. Otherwise, commands may be executed inside the editor prompt with `!`:
 
@@ -531,7 +531,7 @@ When using vi, an external command shell can be opened with `sh`. Otherwise, com
 
 The emacs editor is a popular alternative to vi that executes commands using the CTRL and ALT/ESC keys, instead of special characters. (For a full tutorial, start emacs and type CTRL+h followed by the letter t.) Some of the most common command key combinations include:
 
-<Def array={emacsCommands} />
+<Def items={emacsCommands} />
 
 <Heading str="Manipulating text" />
 
@@ -777,7 +777,7 @@ source ~/rc
 
 Some important variables include:
 
-<Def array={envVariables} />
+<Def items={envVariables} />
 
 Previous shell commands can be cycled with the ↑ and ↓ keys or viewed as a list with the `history` command (command history stored in `~/_history`). Alternatively, the most recent command can be called with `!!` or a specific command in history may be searched with `CTRL+R` followed by character hints.
 
@@ -797,7 +797,7 @@ history
 
 The following keyboard shortcuts may help speed up tasks in the console:
 
-<Def array={consoleShortcuts} />
+<Def items={consoleShortcuts} />
 
 Every file in Unix-based operating systems has an owner and is associated with certain groups, all of whom have varying degrees of permissions and read/write access. These permissions can be changed manually:
 
@@ -863,7 +863,7 @@ traceroute address
 
 Other common networking tools include:
 
-<Def array={networkingTools} />
+<Def items={networkingTools} />
 
 Downloading files from a network, such as an internet webpage, can be accomplished with `wget`. This tool supports large file downloads, recursive downloads, password-sensitive downloads, and large-file downloads.
 

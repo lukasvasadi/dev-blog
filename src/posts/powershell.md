@@ -14,10 +14,10 @@ published: true
   import Def from "../components/Def.svelte"
 
   const basicCommands = [
-      {cmd: "Get-History", desc: "Print command history (alias: <code>history</code>)"},
-      {cmd: "Where-Object", desc: "Select object from collection based on property values (alias: <code>where</code>)"},
-      {cmd: "Get-Process", desc: "Find all running processes (alias: <code>gps</code>)"},
-      {cmd: "Get-Service", desc: "Find all running services (alias: <code>gsv</code>) "},
+      {cmd: "Get-History", desc: "Print command history (alias: `history`)"},
+      {cmd: "Where-Object", desc: "Select object from collection based on property values (alias: `where`)"},
+      {cmd: "Get-Process", desc: "Find all running processes (alias: `gps`)"},
+      {cmd: "Get-Service", desc: "Find all running services (alias: `gsv`) "},
       {cmd: "Write-Warning", desc: "Prints warning message string argument to console with PowerShell formatting"},
       {cmd: "Write-Error", desc: "Prints error message string argument to console with PowerShell formatting"},
       {cmd: "Write-Output", desc: "Print variable value to console while preserving object properties"},
@@ -46,7 +46,7 @@ PowerShell is case insensitive and operates with cmdlets that follow a verb-noun
 
 <Heading str="Basic utilities" />
 
-<Def array={basicCommands} />
+<Def items={basicCommands} />
 
 Sometimes it may be useful to write shell comments, e.g., during webinars or broadcasts. Similar to Unix, comments in PowerShell are preceded with `#`, however, block comments may be written between the `<#` and `#>` symbols.
 

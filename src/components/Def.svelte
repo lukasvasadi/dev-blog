@@ -1,14 +1,16 @@
 <script lang="ts">
 	import type { CommandList } from '$lib/types'
 
-	export let array: CommandList[]
+	let { items }: { items: CommandList[] } = $props()
 </script>
 
 <dl>
-	{#each array as item (item.cmd)}
-		<dt><code>{item.cmd}</code></dt>
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -- item.desc is author-written markup hardcoded in post source, not user input -->
-		<dd>{@html item.desc}</dd>
+	{#each items as { cmd, desc } (cmd)}
+		<dt><code>{cmd}</code></dt>
+		<!-- Backtick-delimited spans in desc render as inline code -->
+		<dd>
+			{#each desc.split('`') as part, i (i)}{#if i % 2}<code>{part}</code>{:else}{part}{/if}{/each}
+		</dd>
 	{/each}
 </dl>
 
