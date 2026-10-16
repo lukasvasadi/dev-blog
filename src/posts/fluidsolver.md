@@ -9,22 +9,21 @@ published: true
 ---
 
 <script>
-  import Heading from "../components/Heading.svelte"
   import Tag from "../components/Tag.svelte"
   import Iconlist from "../components/Iconlist.svelte"
 </script>
 
-<Heading str="Motivation" />
+## Motivation
 
 For some time, I've wanted to change the purpose of this blog to focus on scientific computing. The advent of agentic tooling has, at least in my opinion, reduced the need for basic programming tutorials. However, these tools can be also be used to assist learning and prototyping.
 
 For many years, I've wanted to learn computational fluid simulation with the Julia programming language. This post will attempt to describe the computation of O₂ transport and shear stress on a cell monolayer in a media perfusion chamber. Some core concepts discussed are _Stokes flow_, _advection-diffusion_, and _wall shear_.
 
-<Heading str="Introduction" />
+## Introduction
 
-<Heading str="Solution" />
+## Solution
 
-## 1. Define initial conditions
+### 1. Define initial conditions
 
 First, we start by defining the initial conditions in a keyword struct, with all dimensional inputs reported in SI units. This includes parameters for geometry (`L`, `H`, `W`), flow rate (`Q`), fluid (medium) properties (`μ`, `ρ`, `D`), inlet O₂ (`c_in`), and kinetics (`q_max`, `K_m`). The default parameters describe a 10 mm × 0.5 mm × 5 mm chamber perfused with culture medium at 10 µL/min over a dense monolayer. The uptake parameters are order-of-magnitude estimates (~1e-16 mol/cell/s × ~2e9 cells/m²); replace them with measured OCR and cell density for your line.
 
@@ -43,9 +42,13 @@ Base.@kwdef struct ChamberParams
 end
 ```
 
-<Tag msg="Note that each field in the struct is annotated with a specific type, e.g., <code>::Float64</code>. This gives the struct a concrete memory layout at compile-time. The struct is also immutable, meaning that copies must be created to change field values." />
+<Tag>
 
-## 2. Compute dimensionless forms
+Note that each field in the struct is annotated with a specific type, e.g., `::Float64`. This gives the struct a concrete memory layout at compile-time. The struct is also immutable, meaning that copies must be created to change field values.
+
+</Tag>
+
+### 2. Compute dimensionless forms
 
 ```julia
 function groups(p::ChamberParams)
