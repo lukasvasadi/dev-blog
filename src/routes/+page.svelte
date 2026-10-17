@@ -63,7 +63,7 @@
 
 	@media (min-width: 600px) {
 		.post {
-			max-inline-size: 700px;
+			max-inline-size: 660px;
 		}
 	}
 </style>

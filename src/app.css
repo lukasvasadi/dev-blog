@@ -123,6 +123,17 @@ a {
 	color: var(--link-color);
 }
 
+/* Links in post text keep the text color and carry the accent on the underline */
+.prose a:not(.heading-link) {
+	color: inherit;
+	text-decoration-color: var(--link-color);
+	text-underline-offset: 0.2em;
+}
+
+.prose a:not(.heading-link):hover {
+	color: var(--link-color);
+}
+
 code,
 pre {
 	font-family: var(--font-mono), monospace;
