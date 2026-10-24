@@ -54,7 +54,7 @@
 
 <style>
 	article {
-		max-inline-size: 90vw;
+		max-inline-size: 100%;
 		margin-inline: auto;
 	}
 
