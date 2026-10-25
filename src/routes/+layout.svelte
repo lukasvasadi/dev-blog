@@ -25,6 +25,7 @@
 	.layout {
 		height: 100%;
 		display: grid;
+		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: auto 1fr auto;
 		gap: 2rem;
 	}
