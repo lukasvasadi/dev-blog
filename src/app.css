@@ -16,6 +16,7 @@
 	--border-color: #aaa;
 	--link-color: #ffadff;
 	--radius: 5px;
+	--header-height: 74px; /* Keep in sync with Header.svelte */
 }
 
 * {
@@ -99,7 +100,8 @@ h6 {
 h2[id],
 h3[id],
 h4[id] {
-	scroll-margin-top: 120px; /* Clear the sticky header when linked to */
+	/* Clear the sticky header when linked */
+	scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .heading-link {
@@ -170,7 +172,8 @@ dl {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
-	scroll-margin-top: 120px; /* Clear the sticky header when linked to */
+	/* Clear the sticky header when linked */
+	scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .prose .equation .math {

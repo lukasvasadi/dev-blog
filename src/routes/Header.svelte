@@ -51,7 +51,7 @@
 	}
 
 	nav {
-		padding-block: 2rem;
+		padding-block: 1.25rem;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -63,5 +63,6 @@
 		text-decoration: none;
 		font-family: 'Fira Code';
 		font-size: 22px;
+		line-height: 1.5;
 	}
 </style>
